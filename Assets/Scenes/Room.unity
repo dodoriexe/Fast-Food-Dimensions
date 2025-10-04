@@ -3114,7 +3114,7 @@ MonoBehaviour:
   coyoteTime: 0.1
   grounded: 0
   fallMultiplier: 2.5
-  lowJumpMultiplier: 0.5
+  lowJumpMultiplier: 2
   minJumpTime: 0.1
   orientation: {fileID: 2054036045}
   groundCheck: {fileID: 1906349331}
