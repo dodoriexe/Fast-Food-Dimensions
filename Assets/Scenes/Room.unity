@@ -5647,7 +5647,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customerPrefabs:
-  - {fileID: 2781787039091012771, guid: a447d68a5cc282d4298d580f49edd9c3, type: 3}
   - {fileID: 897591059709525309, guid: 884085f78ffbb2c48ad5907e0939eeea, type: 3}
   customerSpawnPoint: {fileID: 1772905147}
   dimensions:

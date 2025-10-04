@@ -5,6 +5,8 @@ public class Customer : MonoBehaviour
     public CustomerType type;
     public float groundOffset;
     public float driveSpeed;
+    public AudioSource audioSource;
+    public AudioClip[] driveClips; // Assign 2 clips in the Inspector
 
     public CustomerStates state;
 
@@ -34,9 +36,18 @@ public class Customer : MonoBehaviour
 
     }
 
+    
+
     public void AtDrive()
     {
         state = CustomerStates.WaitingForOrder;
+
+        if (driveClips != null && driveClips.Length > 0 && audioSource != null)
+        {
+            int idx = Random.Range(0, driveClips.Length);
+            audioSource.clip = driveClips[idx];
+            audioSource.Play();
+        }
     }
 }
 
@@ -53,3 +64,4 @@ public enum CustomerStates
     WaitingForOrder,
     Goodbye
 }
+
