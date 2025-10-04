@@ -1015,9 +1015,10 @@ MonoBehaviour:
   moveSpeed: 7
   groundDrag: 5
   jumpForce: 12
-  jumpCooldown: 0
-  airMultiplier: 0.25
+  jumpCooldown: 0.25
+  airMultiplier: 0.4
   canJump: 0
+  jumpKey: 32
   playerHeight: 0.5
   groundLayer:
     serializedVersion: 2
