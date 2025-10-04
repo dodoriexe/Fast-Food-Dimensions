@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 52951917}
   - component: {fileID: 52951916}
   - component: {fileID: 52951915}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BrownPlace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,7 +541,7 @@ GameObject:
   - component: {fileID: 183082555}
   - component: {fileID: 183082554}
   - component: {fileID: 183082553}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BluePlace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2526,7 +2526,7 @@ GameObject:
   - component: {fileID: 905059866}
   - component: {fileID: 905059865}
   - component: {fileID: 905059864}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RedPlace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
