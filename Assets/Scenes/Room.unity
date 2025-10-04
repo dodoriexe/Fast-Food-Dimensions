@@ -2892,7 +2892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f998d97939ea2348bded7a3f7d3aa6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionRange: 1
+  interactionRange: 3
   interactionKey: 101
   cameraObject: {fileID: 541127031}
 --- !u!1 &1394593780
