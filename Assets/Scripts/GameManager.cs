@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public List<GameObject> customerPrefabs;
     public Transform customerSpawnPoint;
 
+    public List<Dimension> dimensions;
+
     private void Awake()
     {
         if (Instance == null)
