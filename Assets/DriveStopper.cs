@@ -1,12 +1,7 @@
 using UnityEngine;
 
-public class Customer : MonoBehaviour
+public class DriveStopper : MonoBehaviour
 {
-    public CustomerType type;
-    public float groundOffset;
-
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,11 +13,4 @@ public class Customer : MonoBehaviour
     {
         
     }
-}
-
-public enum CustomerType
-{
-    Car1,
-    Alien,
-    Skateboarder
 }

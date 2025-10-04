@@ -6,38 +6,42 @@ using EasyTextEffects;
 
 public class Dial : Interactable
 {
-    int currentDimensionIndex;
     public TMPro.TextMeshPro DimensionDisplay;
 
     void Start()
     {
-        currentDimensionIndex = 0;
-        UpdateDimensionLabel();
+        ChangeDimension();
     }
 
     public override void LookAt()
     {
-        interactionPrompt = $"Press 'E' to change dimension." + Environment.NewLine + $"Current dimension: <color=#{GameManager.Instance.dimensions[currentDimensionIndex].dimensionColor.ToHexString()}>{GameManager.Instance.dimensions[currentDimensionIndex].dimensionName}";
+        interactionPrompt = $"Press 'E' to change dimension." + Environment.NewLine + $"Current dimension: <color=#{GameManager.Instance.dimensions[GameManager.Instance.currentDimensionIndex].dimensionColor.ToHexString()}>{GameManager.Instance.dimensions[GameManager.Instance.currentDimensionIndex].dimensionName}";
         InteractText.Instance.ShowText(interactionPrompt);
         
     }
 
     public override void Interact()
     {
-        currentDimensionIndex++;
-        if (currentDimensionIndex >= GameManager.Instance.dimensions.Count)
+        GameManager.Instance.currentDimensionIndex++;
+        if (GameManager.Instance.currentDimensionIndex >= GameManager.Instance.dimensions.Count)
         {
-            currentDimensionIndex = 0;
+            GameManager.Instance.currentDimensionIndex = 0;
         }
-        UpdateDimensionLabel();
+        ChangeDimension();
         InteractText.Instance.ShowText(interactionPrompt);
         base.Interact();
     }
 
-    void UpdateDimensionLabel()
+    void ChangeDimension()
     {
-        DimensionDisplay.text = GameManager.Instance.dimensions[currentDimensionIndex].dimensionName;
-        DimensionDisplay.color = GameManager.Instance.dimensions[currentDimensionIndex].dimensionColor;
+        GameManager.Instance.ChangeDimension(GameManager.Instance.currentDimensionIndex);
+        UpdateDimensionLabel();
+    }
+
+    void UpdateDimensionLabel() 
+    {
+        DimensionDisplay.text = GameManager.Instance.dimensions[GameManager.Instance.currentDimensionIndex].dimensionName;
+        DimensionDisplay.color = GameManager.Instance.dimensions[GameManager.Instance.currentDimensionIndex].dimensionColor;
         DimensionDisplay.GetComponent<TextEffect>().Refresh();
     }
 

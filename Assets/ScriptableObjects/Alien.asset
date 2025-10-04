@@ -10,9 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18d6b633d64d80f4684acb2b20d49738, type: 3}
-  m_Name: Poop Dimension
+  m_Name: Alien
   m_EditorClassIdentifier: 
-  dimensionName: Poopistan
-  dimensionColor: {r: 0.31132078, g: 0.16198233, b: 0, a: 1}
-  portalCollider: {fileID: 0}
-  portalMaterial: {fileID: 2100000, guid: 30a44bae47a88b945acfaa72ad3b6105, type: 2}
+  dimensionName: Oddly Familiar Alien Planet
+  dimensionColor: {r: 0.89411765, g: 0.8627451, b: 1, a: 1}

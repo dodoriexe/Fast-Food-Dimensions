@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DriveThruWindow : Interactable
 {
-
+    public GameObject playerObject;
     public bool isOpen = false;
     KeyCode interactionKey;
 
@@ -12,8 +12,7 @@ public class DriveThruWindow : Interactable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GameObject player = GameObject.FindWithTag("Player");
-        interactionKey = player.GetComponent<PlayerInteraction>().interactionKey;
+        interactionKey = playerObject.GetComponent<PlayerInteraction>().interactionKey;
 
         
     }
