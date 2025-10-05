@@ -235,7 +235,10 @@ MonoBehaviour:
   driveClips:
   - {fileID: 8300000, guid: b496fab6b16d6ef4dace0262d48db2dc, type: 3}
   - {fileID: 8300000, guid: 24b61f5cd154df8499e5e6222f66396f, type: 3}
+  - {fileID: 8300000, guid: 19b77d41e72b97f43bd87db5a1965897, type: 3}
+  - {fileID: 8300000, guid: 8fa0e5578cb89214588e6c6dc248d7f5, type: 3}
   state: 0
+  order: []
 --- !u!82 &2796269819039402147
 AudioSource:
   m_ObjectHideFlags: 0

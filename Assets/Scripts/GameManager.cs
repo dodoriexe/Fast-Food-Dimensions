@@ -12,12 +12,20 @@ public class GameManager : MonoBehaviour
     public List<Portal> dimensionPortals;
     public int currentDimensionIndex;
 
+    public List<FoodStuffs> foodOrderItems;
+    public List<FoodStuffs> drinkOrderItems;
+
     public float teleportCooldown = 0.25f;
     public float lastTeleportTime = -1f;
 
     public GameObject kitchenCam;
     public GameObject portalFrame;
     public GameObject kitchenCollider;
+
+    public GameObject orderSignHolder;
+
+    public int foodGenerateAmount;
+    public int drinkGenerateAmount;
 
     private void Awake()
     {
@@ -73,5 +81,42 @@ public class GameManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    internal List<FoodStuffs> GenerateOrder()
+    {
+        List<FoodStuffs> tempOrder = new List<FoodStuffs>();
+        // Generate Item Displays
+
+        // Food
+        for (int i = 0; i < foodGenerateAmount; i++)
+        {
+            tempOrder.Add(GetRandomFood());
+        }
+
+        // Drink
+        for (int i = 0; i < drinkGenerateAmount; i++)
+        {
+            tempOrder.Add(GetRandomDrink());
+        }
+
+
+        // Generate an order with items that have random cook percentages. ( Raw, Medium, WellDone )
+
+        return tempOrder;
+
+    }
+    internal FoodStuffs GetRandomFood()
+    {
+        if (foodOrderItems == null || foodOrderItems.Count == 0)
+            return null;
+        return foodOrderItems[Random.Range(0, foodOrderItems.Count)];
+    }
+
+    internal FoodStuffs GetRandomDrink()
+    {
+        if (drinkOrderItems == null || drinkOrderItems.Count == 0)
+            return null;
+        return drinkOrderItems[Random.Range(0, drinkOrderItems.Count)];
     }
 }
