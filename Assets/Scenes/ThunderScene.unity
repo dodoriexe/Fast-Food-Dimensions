@@ -497,6 +497,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: cabinet
       objectReference: {fileID: 0}
+    - target: {fileID: 4210357320963261148, guid: e4cc48b741e5ff24cb4e10b1b62c8491, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 099c9afc195acb64dabaaa44ae718747, type: 2}
+    - target: {fileID: 5062116046330215771, guid: e4cc48b741e5ff24cb4e10b1b62c8491, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 92845363f58cc834ea88f65b366552ed, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 65702495048144492, guid: e4cc48b741e5ff24cb4e10b1b62c8491, type: 3}
@@ -517,6 +525,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1616107026}
     m_Modifications:
+    - target: {fileID: -9041531117694079289, guid: 3a8befda5134be040940cb57c2fd4c9c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8bcb2549b7a9e3c43887e98cadc58767, type: 2}
     - target: {fileID: -8679921383154817045, guid: 3a8befda5134be040940cb57c2fd4c9c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.17
@@ -573,6 +585,22 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -5053055836128542011, guid: 3a8befda5134be040940cb57c2fd4c9c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3eee1d8544d1b8d418b34683c600f2e3, type: 2}
+    - target: {fileID: -4897732323685117858, guid: 3a8befda5134be040940cb57c2fd4c9c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cf313e80d106ee84cabd46b5d9275046, type: 2}
+    - target: {fileID: -2796478745082720190, guid: 3a8befda5134be040940cb57c2fd4c9c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3eee1d8544d1b8d418b34683c600f2e3, type: 2}
+    - target: {fileID: -453615173548524335, guid: 3a8befda5134be040940cb57c2fd4c9c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8bcb2549b7a9e3c43887e98cadc58767, type: 2}
     - target: {fileID: 919132149155446097, guid: 3a8befda5134be040940cb57c2fd4c9c, type: 3}
       propertyPath: m_Name
       value: drive-through-window
@@ -1588,6 +1616,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: cabinet
       objectReference: {fileID: 0}
+    - target: {fileID: 4210357320963261148, guid: e4cc48b741e5ff24cb4e10b1b62c8491, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1b9038a3f10ff9f4eb025c081575abc3, type: 2}
+    - target: {fileID: 5062116046330215771, guid: e4cc48b741e5ff24cb4e10b1b62c8491, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 05947a91a981764488d6a48f816ca8ca, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 65702495048144492, guid: e4cc48b741e5ff24cb4e10b1b62c8491, type: 3}
@@ -2067,6 +2103,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -4683669308469848369, guid: 2fb5ed8d2ef8e4f428efbd69961de39f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f0aaa7bfdc590ff48825e40db407e70b, type: 2}
     - target: {fileID: -3371861067325885827, guid: 2fb5ed8d2ef8e4f428efbd69961de39f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
