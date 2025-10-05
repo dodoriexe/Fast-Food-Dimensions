@@ -13,8 +13,6 @@ public class DriveThruWindow : Interactable
     void Start()
     {
         interactionKey = playerObject.GetComponent<PlayerInteraction>().interactionKey;
-
-        
     }
 
     // Update is called once per frame

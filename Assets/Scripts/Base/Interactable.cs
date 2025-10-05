@@ -22,6 +22,11 @@ public class Interactable : MonoBehaviour
         Debug.Log("Interacted with " + this.gameObject.name);
     }
 
+    public virtual void InteractLetGo()
+    {
+        //Debug.Log("Let go of " + this.gameObject.name);
+    }
+
     public virtual void LookAt()
     {
         

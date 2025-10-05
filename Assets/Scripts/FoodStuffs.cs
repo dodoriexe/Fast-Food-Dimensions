@@ -6,17 +6,55 @@ public class FoodStuffs : Interactable
     public float cookPercentage;
     public GameObject orderItem;
     public Sprite foodSprite;
+    SpringJoint springJoint;
+    public bool beingHeld;
+
+    public GameObject connectObject;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        this.springJoint = gameObject.GetComponent<SpringJoint>();
         cookPercentage = 0f;
+        beingHeld = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    override public void Interact()
+    {
+        beingHeld = true;
+        springJoint.spring = 50f;
+        //Debug.Log("Interacted with food item.");
+        GameManager.Instance.playerHands.transform.position = transform.position;
+        Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+        rb.isKinematic = false;
+        springJoint.connectedBody = GameManager.Instance.playerHands.GetComponent<Rigidbody>();
+        this.transform.SetParent(GameManager.Instance.player.transform);
+        //gameObject.GetComponent<Rigidbody>().isKinematic = false;
+    }
+
+    override public void InteractLetGo()
+    {
+        if(beingHeld)
+        {
+            beingHeld = false;
+            springJoint.spring = 0f;
+            springJoint.connectedBody = null;
+            this.transform.SetParent(null);
+            //gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        }
+    }
+
+    override public void LookAt()
+    {
+        KeyCode interactionKey = GameManager.Instance.player.GetComponent<PlayerInteraction>().interactionKey;
+        interactionPrompt = $"Press '{interactionKey}' to pick up the item";
+        InteractText.Instance.ShowText(interactionPrompt);
     }
 
     private void OnTriggerEnter(Collider other)

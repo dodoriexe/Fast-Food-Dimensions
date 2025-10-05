@@ -5,6 +5,8 @@ public class PlayerInteraction : MonoBehaviour
     public float interactionRange;
     public KeyCode interactionKey;
     public Transform cameraObject;
+    public bool holdingInteractKey;
+    public Interactable lastInteract;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,11 +17,21 @@ public class PlayerInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Physics.Raycast(cameraObject.position, cameraObject.transform.forward, out RaycastHit hitInfo, interactionRange))
+        if (Input.GetKeyUp(interactionKey))
+        {
+            Interactable tempInt = lastInteract;
+            if (tempInt != null)
+            {
+                tempInt.InteractLetGo();
+            }
+        }
+
+        if (Physics.Raycast(cameraObject.position, cameraObject.transform.forward, out RaycastHit hitInfo, interactionRange))
         {
             Interactable interactable = hitInfo.collider.GetComponent<Interactable>();
             if(interactable != null)
             {
+                lastInteract = interactable;
                 interactable.LookAt();
 
                 if (Input.GetKeyDown(interactionKey))
@@ -27,7 +39,6 @@ public class PlayerInteraction : MonoBehaviour
                     interactable.Interact();
                     InteractText.NoTarget();
                 }
-
             }
             else
             {
@@ -38,5 +49,12 @@ public class PlayerInteraction : MonoBehaviour
         {
             InteractText.NoTarget();
         }
+
+        if(Input.GetKey(interactionKey))
+        {
+            holdingInteractKey = true;
+        }
+
+
     }
 }

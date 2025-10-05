@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public GameObject player;
+    public GameObject playerHands;
     public List<GameObject> customerPrefabs;
     public Transform customerSpawnPoint;
 
@@ -26,6 +28,7 @@ public class GameManager : MonoBehaviour
 
     public int foodGenerateAmount;
     public int drinkGenerateAmount;
+    
 
     private void Awake()
     {
