@@ -22,7 +22,10 @@ public class FoodStuffs : Interactable
     // Update is called once per frame
     void Update()
     {
-        
+        if(this.transform.localScale != new Vector3(0.4f,0.4f,0.4f))
+        {
+            this.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+        }
     }
 
     override public void Interact()
@@ -59,11 +62,26 @@ public class FoodStuffs : Interactable
 
     private void OnTriggerEnter(Collider other)
     {
+
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
         if (other.CompareTag("GrillTop"))
         {
             cookPercentage += Time.deltaTime * 1f;
             cookPercentage = Mathf.Clamp(cookPercentage, 0f, 100f);
             Debug.Log($"Cook Percentage: {cookPercentage}%");
+        }
+    }
+
+
+    private void OnCollisionEnter(Collision other)
+    {
+        
+        if (other.collider.CompareTag("GrillTop"))
+        {
+            // Sizzle Noise
         }
     }
 
