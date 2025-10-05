@@ -8,6 +8,7 @@ public class OrderItem : MonoBehaviour
     Color fillColor;
     public Image fillImage;
     public Image foodImage;
+    public GameObject rawText;
 
     public void Start()
     {
@@ -16,11 +17,24 @@ public class OrderItem : MonoBehaviour
 
     public void Initialize(float cookPercentage, FoodType foodType, Sprite foodSprite )
     {
+
+        if (cookPercentage <= 0f)
+        {
+            // Raw
+            rawText.SetActive(true);
+        }
+        else
+        {
+            rawText.SetActive(false);
+        }
+
         fillColor = FoodStuffs.GetColorFromPercent(cookPercentage);
         desiredCookPercentage = cookPercentage;
 
         fillImage.color = fillColor;
         fillImage.fillAmount = desiredCookPercentage;
+
+
 
         this.foodType = foodType;
         foodImage.sprite = foodSprite;

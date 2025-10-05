@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18d6b633d64d80f4684acb2b20d49738, type: 3}
-  m_Name: Tomato Dimension
+  m_Name: Storage Dimension
   m_EditorClassIdentifier: 
-  dimensionName: Tomatrix
-  dimensionColor: {r: 0.7830189, g: 0.12677604, b: 0.08495018, a: 1}
+  dimensionName: Pantryverse
+  dimensionColor: {r: 1, g: 1, b: 1, a: 1}

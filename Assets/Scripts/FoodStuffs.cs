@@ -1,22 +1,27 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class FoodStuffs : Interactable
+public class FoodStuffs : Draggable
 {
     public FoodType foodType;
     public float cookPercentage;
     public GameObject orderItem;
     public Sprite foodSprite;
-    SpringJoint springJoint;
-    public bool beingHeld;
+
+    public Transform canvasObject;
+    public Image cookImage;
+    public GameObject rawText;
+
+    public float canvasOffset = 0.5f;
+
 
     public GameObject connectObject;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        this.springJoint = gameObject.GetComponent<SpringJoint>();
+        Init();
         cookPercentage = 0f;
-        beingHeld = false;
     }
 
     // Update is called once per frame
@@ -28,37 +33,7 @@ public class FoodStuffs : Interactable
         }
     }
 
-    override public void Interact()
-    {
-        beingHeld = true;
-        springJoint.spring = 50f;
-        //Debug.Log("Interacted with food item.");
-        GameManager.Instance.playerHands.transform.position = transform.position;
-        Rigidbody rb = gameObject.GetComponent<Rigidbody>();
-        rb.isKinematic = false;
-        springJoint.connectedBody = GameManager.Instance.playerHands.GetComponent<Rigidbody>();
-        this.transform.SetParent(GameManager.Instance.player.transform);
-        //gameObject.GetComponent<Rigidbody>().isKinematic = false;
-    }
-
-    override public void InteractLetGo()
-    {
-        if(beingHeld)
-        {
-            beingHeld = false;
-            springJoint.spring = 0f;
-            springJoint.connectedBody = null;
-            this.transform.SetParent(null);
-            //gameObject.GetComponent<Rigidbody>().isKinematic = false;
-        }
-    }
-
-    override public void LookAt()
-    {
-        KeyCode interactionKey = GameManager.Instance.player.GetComponent<PlayerInteraction>().interactionKey;
-        interactionPrompt = $"Press '{interactionKey}' to pick up the item";
-        InteractText.Instance.ShowText(interactionPrompt);
-    }
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -69,12 +44,65 @@ public class FoodStuffs : Interactable
     {
         if (other.CompareTag("GrillTop"))
         {
+            ShowCookImage();
+
             cookPercentage += Time.deltaTime * 1f;
             cookPercentage = Mathf.Clamp(cookPercentage, 0f, 100f);
             Debug.Log($"Cook Percentage: {cookPercentage}%");
         }
+
+        if(other.CompareTag("WindowTop"))
+        {
+            // Bag Item
+        }
     }
 
+    private void ShowCookImage()
+    {
+        if (cookImage == null || canvasObject == null || GameManager.Instance.playerCamera == null)
+            return;
+
+        cookImage.gameObject.SetActive(true);
+        cookImage.fillAmount = cookPercentage / 100f;
+        cookImage.color = GetColorFromPercent(cookPercentage / 100f);
+
+        Camera cam = GameManager.Instance.playerCamera;
+        Vector3 camPos = cam.transform.position;
+        Vector3 foodPos = transform.position;
+
+        Vector3 dirToCam = (camPos - foodPos).normalized;
+
+        float distToCam = Vector3.Distance(camPos, foodPos);
+        float minDistFromCam = 0.6f;   // prevents UI from moving inside the player
+        float verticalOffset = 0.2f;   // lifts UI above the food a little
+
+        Vector3 desiredPos;
+
+        if (distToCam <= minDistFromCam)
+        {
+            // If the camera is too close, push the canvas in front of the camera toward the food
+            desiredPos = camPos - dirToCam * minDistFromCam;
+        }
+        else
+        {
+            // Normal placement: a fixed offset in front of the food, toward camera
+            float useOffset = Mathf.Min(canvasOffset, distToCam - minDistFromCam);
+            desiredPos = foodPos + dirToCam * useOffset;
+        }
+
+        // Apply vertical lift
+        desiredPos += Vector3.up * verticalOffset;
+        canvasObject.position = desiredPos;
+
+        // Face Camera
+        Vector3 lookDir = canvasObject.position - camPos;
+        lookDir.y = 0f; // keep it upright; remove this line if you want full tilt toward camera
+        if (lookDir.sqrMagnitude > 0.0001f)
+        {
+            Quaternion targetRot = Quaternion.LookRotation(lookDir.normalized, Vector3.up);
+            canvasObject.rotation = targetRot;
+        }
+    }
 
     private void OnCollisionEnter(Collision other)
     {
@@ -87,9 +115,13 @@ public class FoodStuffs : Interactable
 
     public static CookLevel GetCookLevel(float cookPercent)
     {
-        if (cookPercent < .25f)
+        if(cookPercent == 0f)
         {
             return CookLevel.Raw;
+        }
+        if (cookPercent < .25f)
+        {
+            return CookLevel.Rare;
         }
         else if (cookPercent < .66)
         {
@@ -129,6 +161,7 @@ public class FoodStuffs : Interactable
 public enum CookLevel
 {
     Raw,
+    Rare,
     Medium,
     WellDone,
     Burnt
