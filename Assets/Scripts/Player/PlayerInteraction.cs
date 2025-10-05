@@ -42,7 +42,6 @@ public class PlayerInteraction : MonoBehaviour
             }
             else
             {
-                InteractText.NoTarget();
             }
         }
         else
