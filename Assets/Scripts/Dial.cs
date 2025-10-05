@@ -7,11 +7,8 @@ using EasyTextEffects;
 public class Dial : Interactable
 {
     public TMPro.TextMeshPro DimensionDisplay;
-<<<<<<< Updated upstream
-=======
     public GameObject doorObject;
     public bool isDoorOpen = true;
->>>>>>> Stashed changes
 
     void Start()
     {
@@ -20,10 +17,8 @@ public class Dial : Interactable
 
     public override void LookAt()
     {
-<<<<<<< Updated upstream
         interactionPrompt = $"Press 'E' to change dimension." + Environment.NewLine + $"Current dimension: <color=#{GameManager.Instance.dimensions[GameManager.Instance.currentDimensionIndex].dimensionColor.ToHexString()}>{GameManager.Instance.dimensions[GameManager.Instance.currentDimensionIndex].dimensionName}";
         InteractText.Instance.ShowText(interactionPrompt);
-=======
         if (isDoorOpen)
         {
             interactionPrompt = $"Press 'E' to change dimension." + Environment.NewLine + $"Current dimension: <color=#{GameManager.Instance.dimensions[GameManager.Instance.currentDimensionIndex].dimensionColor.ToHexString()}>{GameManager.Instance.dimensions[GameManager.Instance.currentDimensionIndex].dimensionName}";
@@ -33,33 +28,40 @@ public class Dial : Interactable
             interactionPrompt = $"Loading Dimension";
         }
         InteractText.Instance.ShowText(interactionPrompt);
-
->>>>>>> Stashed changes
         
     }
 
     public override void Interact()
     {
-<<<<<<< Updated upstream
-=======
-        CloseDoor();
->>>>>>> Stashed changes
-        GameManager.Instance.currentDimensionIndex++;
-        if (GameManager.Instance.currentDimensionIndex >= GameManager.Instance.dimensions.Count)
+        if (isDoorOpen)
         {
-            GameManager.Instance.currentDimensionIndex = 0;
+            CloseDoor();
+            GameManager.Instance.currentDimensionIndex++;
+            if (GameManager.Instance.currentDimensionIndex >= GameManager.Instance.dimensions.Count)
+            {
+                GameManager.Instance.currentDimensionIndex = 0;
+            }
+            InteractText.Instance.ShowText(interactionPrompt);
+            base.Interact();
         }
-<<<<<<< Updated upstream
-        ChangeDimension();
-        InteractText.Instance.ShowText(interactionPrompt);
-        base.Interact();
+        else
+        {
+            GameManager.Instance.currentDimensionIndex++;
+            if (GameManager.Instance.currentDimensionIndex >= GameManager.Instance.dimensions.Count)
+            {
+                GameManager.Instance.currentDimensionIndex = 0;
+            }
+            InteractText.Instance.ShowText(interactionPrompt);
+            UpdateDimensionLabel();
+            ChangeDimension();
+            base.Interact();
+        }
     }
 
     void ChangeDimension()
     {
         GameManager.Instance.ChangeDimension(GameManager.Instance.currentDimensionIndex);
         UpdateDimensionLabel();
-=======
         base.Interact();
     }
 
@@ -83,12 +85,6 @@ public class Dial : Interactable
         ChangeDimension();
         closingScript.Open();
         isDoorOpen = true;
-    }
-
-    void ChangeDimension()
-    {
-        GameManager.Instance.ChangeDimension(GameManager.Instance.currentDimensionIndex);
->>>>>>> Stashed changes
     }
 
     void UpdateDimensionLabel() 
