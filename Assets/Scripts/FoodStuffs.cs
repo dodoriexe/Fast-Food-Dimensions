@@ -10,6 +10,7 @@ public class FoodStuffs : Draggable
 
     public Transform canvasObject;
     public Image cookImage;
+    public GameObject rawText;
 
     public float canvasOffset = 0.5f;
 
@@ -114,9 +115,13 @@ public class FoodStuffs : Draggable
 
     public static CookLevel GetCookLevel(float cookPercent)
     {
-        if (cookPercent < .25f)
+        if(cookPercent == 0f)
         {
             return CookLevel.Raw;
+        }
+        if (cookPercent < .25f)
+        {
+            return CookLevel.Rare;
         }
         else if (cookPercent < .66)
         {
@@ -156,6 +161,7 @@ public class FoodStuffs : Draggable
 public enum CookLevel
 {
     Raw,
+    Rare,
     Medium,
     WellDone,
     Burnt

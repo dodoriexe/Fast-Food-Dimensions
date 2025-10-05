@@ -13,6 +13,8 @@ public class Customer : MonoBehaviour
 
     public List<FoodStuffs> order;
 
+    public int customersServed; // High score
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -53,6 +55,24 @@ public class Customer : MonoBehaviour
             {
                 GameObject orderObj = Instantiate(item.orderItem);
                 float randomCook = Random.Range(0f, 1f);
+
+                if(randomCook < 0.3f)
+                {
+                    randomCook = 0f; // Raw
+                }
+                else if (randomCook < 0.5f)
+                {
+                    randomCook = 0.33f; // Rare
+                }
+                else if (randomCook < 0.7f)
+                {
+                    randomCook = 0.5f; // Medium
+                }
+                else
+                {
+                    randomCook = 1f; // Well Done
+                }
+
                 orderObj.GetComponent<OrderItem>().Initialize(randomCook, item.foodType, item.foodSprite);
 
                 orderObj.transform.SetParent(GameManager.Instance.orderSignHolder.transform, false);
