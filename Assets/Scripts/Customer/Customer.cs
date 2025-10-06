@@ -180,8 +180,7 @@ public class Customer : MonoBehaviour
         {
             GameObject.Destroy(child.gameObject);
         }
-        PlaySadSound();
-        state = CustomerStates.Goodbye;
+        GameManager.Instance.GameOver("You weren't fast enough with the order!");
     }
 }
 
