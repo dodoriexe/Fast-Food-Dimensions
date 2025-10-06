@@ -7695,13 +7695,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 563548515}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.042173106, y: -0.113287024, z: -0.06549806, w: 0.99050367}
-  m_LocalPosition: {x: 10.749436, y: 1.6786118, z: 72.997215}
+  m_LocalRotation: {x: -0.082153216, y: -0.1101355, z: 0.029055538, w: 0.9900893}
+  m_LocalPosition: {x: 11.35, y: 1.27, z: 70.37}
   m_LocalScale: {x: 2.2650561, y: 0.17418002, z: 8.519302}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1743473118}
-  m_LocalEulerAnglesHint: {x: -5.646, y: -12.707, z: -6.937}
+  m_LocalEulerAnglesHint: {x: -8.991, y: -13.04, z: 4.392}
 --- !u!65 &563548517
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22402,7 +22402,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 38fa8d3890ce9e94998a27d167de1752, type: 2}
   dimensionPortals:
   - {fileID: 567999459}
-  - {fileID: 0}
+  - {fileID: 1617936961}
   - {fileID: 512817603}
   currentDimensionIndex: 0
   foodOrderItems:
@@ -22450,7 +22450,7 @@ MonoBehaviour:
   cameraMatA: {fileID: 2100000, guid: aaa1d9a257fd56a418b7f2923668ce83, type: 2}
   cameraB: {fileID: 974704636}
   cameraMatB: {fileID: 2100000, guid: ef9c81062c9c7c24989023d9b43768e5, type: 2}
-  cameraC: {fileID: 0}
+  cameraC: {fileID: 1821780296}
   cameraMatC: {fileID: 2100000, guid: 30a44bae47a88b945acfaa72ad3b6105, type: 2}
   cameraD: {fileID: 1227114805}
   cameraMatD: {fileID: 2100000, guid: a34d3a108d31cae44b60b57d9e3b9849, type: 2}
@@ -23618,7 +23618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd8b752ef005d44a8f14027181f3be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportPoint: {fileID: 0}
+  teleportPoint: {fileID: 1121607984}
 --- !u!65 &1796134974
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24302,6 +24302,7 @@ GameObject:
   - component: {fileID: 1821780297}
   - component: {fileID: 1821780296}
   - component: {fileID: 1821780295}
+  - component: {fileID: 1821780298}
   m_Layer: 11
   m_Name: BrownCam
   m_TagString: Untagged
@@ -24341,7 +24342,7 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 1
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
@@ -24407,7 +24408,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 3127
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 7c35cea3bfc3b3644bec11c80c6f2629, type: 2}
   m_TargetDisplay: 7
@@ -24431,9 +24432,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b9aa1ad4c44444eaed906cd39566f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerCamera: {fileID: 0}
+  PlayerCamera: {fileID: 541127031}
   Portal: {fileID: 1617936959}
-  otherPortal: {fileID: 0}
+  otherPortal: {fileID: 914779356}
+--- !u!45 &1821780298
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821780293}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &1821971630
 GameObject:
   m_ObjectHideFlags: 0
@@ -26730,7 +26740,7 @@ MonoBehaviour:
   camera: {fileID: 1124075942}
   player: {fileID: 1373794986}
   receiver: {fileID: 1942261054}
-  exitOffset: 1.1
+  exitOffset: 0
 --- !u!65 &1939286668
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27603,10 +27613,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b0f31dd4c882c43980abd642d95534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
-  player: {fileID: 0}
-  receiver: {fileID: 0}
-  exitOffset: 0
+  camera: {fileID: 1821780296}
+  player: {fileID: 1373794986}
+  receiver: {fileID: 1939286666}
+  exitOffset: -1
 --- !u!65 &2009974504
 BoxCollider:
   m_ObjectHideFlags: 0
