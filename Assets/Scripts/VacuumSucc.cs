@@ -18,7 +18,7 @@ public class VacuumSucc : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.GetComponent<Draggable>())
+        if (other.GetComponent<Draggable>() && !(other.CompareTag("Brown Bug") || other.CompareTag("Red Bug") || other.CompareTag("Green Bug")))
         {
             Rigidbody rb = other.GetComponent<Rigidbody>();
             if (rb != null && succPoint != null)

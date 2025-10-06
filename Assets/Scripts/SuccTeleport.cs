@@ -18,7 +18,7 @@ public class SuccTeleport : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Draggable>())
+        if (other.GetComponent<Draggable>() && !(other.CompareTag("Brown Bug") || other.CompareTag("Red Bug") || other.CompareTag("Green Bug")))
         {
             other.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
             other.GetComponent<Rigidbody>().isKinematic = true;

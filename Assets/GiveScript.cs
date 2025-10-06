@@ -2,15 +2,21 @@ using UnityEngine;
 
 public class GiveScript : MonoBehaviour
 {
-    public float brownamount;
-    public float redamount;
-    public float greenamount;
+    float brownamount;
+    float redamount;
+    float greenamount;
 
     public GameObject tomatoPrefab;
     public GameObject lettucePrefab;
     public GameObject picklePrefab;
 
+    public TMPro.TextMeshPro redBugCountText;
+    public TMPro.TextMeshPro greenBugCountText;
+    public TMPro.TextMeshPro brownBugCountText;
+
     public Transform outputPoint;
+
+    public BugSpawingScript bugSpawner;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,6 +30,13 @@ public class GiveScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void changeText()
+    {
+        redBugCountText.text = (3 - redamount).ToString();
+        greenBugCountText.text = (3 - greenamount).ToString();
+        brownBugCountText.text = (3 - brownamount).ToString();
     }
 
     void output()
@@ -53,18 +66,22 @@ public class GiveScript : MonoBehaviour
             {
                 Destroy(other.gameObject);
                 brownamount++;
+                bugSpawner.spawnBug(bugSpawner.brownBugPrefab);
             }
             if (other.CompareTag("Green Bug"))
             {
                 Destroy(other.gameObject);
                 greenamount++;
+                bugSpawner.spawnBug(bugSpawner.greenBugPrefab);
             }
             if (other.CompareTag("Red Bug"))
             {
                 Destroy(other.gameObject);
                 redamount++;
+                bugSpawner.spawnBug(bugSpawner.redBugPrefab);
             }
         }
+        changeText();
         output();
     }
 }
