@@ -16974,7 +16974,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 2142382248}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 30d5698acdc3f3144823fb0d68b612f7, type: 3}
       propertyPath: m_LocalScale.x
@@ -16982,23 +16982,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 30d5698acdc3f3144823fb0d68b612f7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.39999995
+      value: 0.39999998
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 30d5698acdc3f3144823fb0d68b612f7, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.39999995
+      value: 0.39999998
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 30d5698acdc3f3144823fb0d68b612f7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -988.49
+      value: 11.51001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 30d5698acdc3f3144823fb0d68b612f7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 978.02
+      value: -21.97998
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 30d5698acdc3f3144823fb0d68b612f7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1016.45
+      value: -16.450012
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 30d5698acdc3f3144823fb0d68b612f7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17010,11 +17010,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 30d5698acdc3f3144823fb0d68b612f7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 30d5698acdc3f3144823fb0d68b612f7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 30d5698acdc3f3144823fb0d68b612f7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -28728,6 +28728,8 @@ MonoBehaviour:
   - {fileID: 897591059709525309, guid: 884085f78ffbb2c48ad5907e0939eeea, type: 3}
   customerSpawnPoint: {fileID: 1772905147}
   TableTop: {fileID: 0}
+  SodaTop: {fileID: 0}
+  customerTimer: {fileID: 0}
   dimensions:
   - {fileID: 11400000, guid: 8c455755c5c7126448e48b702c6c74a4, type: 2}
   - {fileID: 11400000, guid: 62672cabb9bd7b84d9c481c19aafae0d, type: 2}
@@ -28751,6 +28753,7 @@ MonoBehaviour:
   foodGenerateAmount: 1
   drinkGenerateAmount: 0
   happyCustomers: 0
+  orderItem: {fileID: 0}
 --- !u!4 &1694973647
 Transform:
   m_ObjectHideFlags: 0
@@ -31053,13 +31056,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b3ccf243aa4cb446a88958e07401d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brownamount: 0
-  redamount: 0
-  greenamount: 0
   tomatoPrefab: {fileID: 993076903425305825, guid: 2128de68a09e3db43a66cc73962cfbfc, type: 3}
   lettucePrefab: {fileID: 3586710369625267076, guid: f42bb0245f107c94abf56683d031f6da, type: 3}
   picklePrefab: {fileID: 5975811320682639298, guid: fddbdd2dcbbf41047b771ba4a58f8ebf, type: 3}
+  redBugCountText: {fileID: 0}
+  greenBugCountText: {fileID: 0}
+  brownBugCountText: {fileID: 0}
   outputPoint: {fileID: 431435836}
+  bugSpawner: {fileID: 0}
 --- !u!65 &1841513349
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40267,6 +40271,7 @@ Transform:
   - {fileID: 356623730}
   - {fileID: 1896345339}
   - {fileID: 512817601}
+  - {fileID: 943974022}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2147095622 stripped
@@ -40896,7 +40901,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1694973647}
-  - {fileID: 943974021}
   - {fileID: 194095067}
   - {fileID: 1316432426}
   - {fileID: 1111372517}
