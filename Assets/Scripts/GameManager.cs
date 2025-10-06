@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
     public static (int foods, int drinks, int items) GetOrderCounts(int score)
     {
         int drinks = 0;
-        int items = 2;
+        int items = 1;
 
         if (score >= 3) { drinks = 1; items = 2; }
         if (score >= 6) { drinks = 1; items = 3; }
