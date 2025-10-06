@@ -6,11 +6,13 @@ public class SodaTop : MonoBehaviour
     public GameObject cupItem; // visual
     public Transform stockPoint;
     public GameObject cupPrefab;
+    
+    private AudioSource _pourAudioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        _pourAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -42,6 +44,8 @@ public class SodaTop : MonoBehaviour
     public void PourDrink(FoodType type, Sprite foodSprite)
     {
         if (!hasCup) return;
+        
+        _pourAudioSource.Play();
         
         Debug.Log($"Pouring drink of type: {type}");
         GameObject item = Instantiate(cupPrefab, stockPoint.position, cupPrefab.transform.rotation);
