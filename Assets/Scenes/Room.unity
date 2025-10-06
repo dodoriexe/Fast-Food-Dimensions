@@ -6254,6 +6254,37 @@ MonoBehaviour:
   PlayerCamera: {fileID: 541127031}
   Portal: {fileID: 512817601}
   otherPortal: {fileID: 914779356}
+--- !u!1 &1227790157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1227790158}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1227790158
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227790157}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 30.895418, y: -1.2603105, z: -0.5944049}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1267660894
 GameObject:
   m_ObjectHideFlags: 0
@@ -11420,6 +11451,7 @@ SceneRoots:
   - {fileID: 3865129622150493406}
   - {fileID: 2066169087}
   - {fileID: 86930163}
+<<<<<<< HEAD
   - {fileID: 6925674113888049521}
   - {fileID: 1749621311}
   - {fileID: 183742362}
@@ -11427,3 +11459,6 @@ SceneRoots:
   - {fileID: 329320076277820243}
   - {fileID: 2068880802}
   - {fileID: 1387985231}
+=======
+  - {fileID: 1227790158}
+>>>>>>> origin
