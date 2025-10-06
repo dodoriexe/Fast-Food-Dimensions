@@ -91,15 +91,16 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    internal List<FoodStuffs> GenerateOrder()
+    internal List<OrderItemHolder> GenerateOrder()
     {
-        List<FoodStuffs> tempOrder = new List<FoodStuffs>();
+        List<OrderItemHolder> tempOrder = new List<OrderItemHolder>();
         // Generate Item Displays
 
         // Food
         for (int i = 0; i < foodGenerateAmount; i++)
         {
             tempOrder.Add(GetRandomFood());
+
         }
 
         // Drink
@@ -109,22 +110,29 @@ public class GameManager : MonoBehaviour
         }
 
 
+
         // Generate an order with items that have random cook percentages. ( Raw, Medium, WellDone )
 
         return tempOrder;
 
     }
-    internal FoodStuffs GetRandomFood()
+    internal OrderItemHolder GetRandomFood()
     {
         if (foodOrderItems == null || foodOrderItems.Count == 0)
             return null;
-        return foodOrderItems[Random.Range(0, foodOrderItems.Count)];
+        float step = 0.01f;
+        OrderItemHolder tempItem = foodOrderItems[Random.Range(0, foodOrderItems.Count)].toOrderItemHolder();
+        tempItem.SetCookPercentage(Mathf.Round(Random.Range(0, 1f) / step) * step);
+        return tempItem;
     }
 
-    internal FoodStuffs GetRandomDrink()
+    internal OrderItemHolder GetRandomDrink()
     {
         if (drinkOrderItems == null || drinkOrderItems.Count == 0)
             return null;
-        return drinkOrderItems[Random.Range(0, drinkOrderItems.Count)];
+        float step = 0.01f;
+        OrderItemHolder tempItem = foodOrderItems[Random.Range(0, foodOrderItems.Count)].toOrderItemHolder();
+        tempItem.SetCookPercentage(Mathf.Round(Random.Range(0, 1f) / step) * step);
+        return drinkOrderItems[Random.Range(0, drinkOrderItems.Count)].toOrderItemHolder();
     }
 }
