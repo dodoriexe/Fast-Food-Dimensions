@@ -44,6 +44,13 @@ public class FoodStuffs : Draggable
     {
         if (other.CompareTag("GrillTop"))
         {
+            AudioSource audioSource = other.GetComponent<AudioSource>();
+
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+            
             ShowCookImage();
 
             cookPercentage += Time.deltaTime * 1f;
