@@ -8859,6 +8859,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b09732c5252b1048bd922fb1efe4c5c, type: 3}
+--- !u!1 &715434669 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: deab65e92ae51ca4495b3d5b74973013, type: 3}
+  m_PrefabInstance: {fileID: 1855076931}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &725789215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21300,7 +21305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasCup: 0
-  cupItem: {fileID: 0}
+  cupItem: {fileID: 715434669}
 --- !u!65 &1573010218
 BoxCollider:
   m_ObjectHideFlags: 0
