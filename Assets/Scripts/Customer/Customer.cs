@@ -8,8 +8,6 @@ public class Customer : MonoBehaviour
     public float driveSpeed;
     public AudioSource audioSource;
 
-    public bool unhappy = false;
-
     public AudioClip[] driveClips; // Assign 2 clips in the Inspector
     public AudioClip happySoundClip;
     public AudioClip sadSoundClip;
@@ -150,7 +148,6 @@ public class Customer : MonoBehaviour
             // Didn't match order
             GameManager.Instance.TableTop.ClearBag();
             Debug.Log("Order Complete! But the Customer is unhappy!");
-            unhappy = true;
 
             // Clear order sign
             foreach (Transform child in GameManager.Instance.orderSignHolder.transform)

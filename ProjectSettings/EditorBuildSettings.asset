@@ -9,11 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: 93c817496cc6fa449bde5a2016e664af
   - enabled: 1
-    path: Assets/Scenes/Dodo.unity
-    guid: 88425da09a027a34ab014802571b705f
-  - enabled: 1
-    path: Assets/Scenes/Game Over.unity
-    guid: 5f97ce8b739d0184eaf6f891d5d290df
+    path: Assets/Scenes/Room.unity
+    guid: 18f984e05318ae946801569cffc3437e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

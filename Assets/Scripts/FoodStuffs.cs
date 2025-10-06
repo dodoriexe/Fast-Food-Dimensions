@@ -192,7 +192,6 @@ public enum FoodType
 {
     // Food
     Burger,
-    ChillGuyFloat,
 
     // Drinks
     DrinkGlorpola,

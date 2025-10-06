@@ -19,8 +19,7 @@ public class DriveStopper : MonoBehaviour
         Physics.Raycast(other.transform.position, Vector3.down, out RaycastHit hitInfo);
         if (other.tag == "Consumer")
         {
-
-                other.GetComponentInParent<Customer>().AtDrive();
+            other.GetComponentInParent<Customer>().AtDrive();
 
         }
     }
