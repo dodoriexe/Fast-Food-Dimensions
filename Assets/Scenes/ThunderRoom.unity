@@ -7680,7 +7680,7 @@ GameObject:
   - component: {fileID: 563548519}
   - component: {fileID: 563548518}
   - component: {fileID: 563548517}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7695,13 +7695,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 563548515}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.082153216, y: -0.1101355, z: 0.029055538, w: 0.9900893}
-  m_LocalPosition: {x: 11.35, y: 1.27, z: 70.37}
-  m_LocalScale: {x: 2.2650561, y: 0.17418002, z: 8.519302}
+  m_LocalRotation: {x: -0.053548392, y: -0.10925121, z: 0.032221578, w: 0.99204767}
+  m_LocalPosition: {x: 11.05, y: 1.44, z: 71.69}
+  m_LocalScale: {x: 2.2650561, y: 0.17418002, z: 5.5847964}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1743473118}
-  m_LocalEulerAnglesHint: {x: -8.991, y: -13.04, z: 4.392}
+  m_LocalEulerAnglesHint: {x: -5.693, y: -12.786, z: 4.359}
 --- !u!65 &563548517
 BoxCollider:
   m_ObjectHideFlags: 0
