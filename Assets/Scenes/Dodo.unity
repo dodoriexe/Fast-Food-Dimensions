@@ -7045,7 +7045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b0f31dd4c882c43980abd642d95534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  identifier: 
+  identifier: Alien
   camera: {fileID: 1227114805}
   player: {fileID: 1373794986}
   receiver: {fileID: 1939286666}
