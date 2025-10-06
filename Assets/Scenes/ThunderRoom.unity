@@ -1341,6 +1341,8 @@ MonoBehaviour:
   interactionPrompt: 
   sodaName: INK
   sodaColor: {r: 0, g: 0, b: 0, a: 1}
+  sodaType: 4
+  foodSprite: {fileID: 21300000, guid: 902ec2e71cdd33249bcae731bbc83c1f, type: 3}
 --- !u!65 &94002424
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7520,6 +7522,8 @@ MonoBehaviour:
   interactionPrompt: 
   sodaName: ELF STRIKE
   sodaColor: {r: 1, g: 0.3066038, b: 0.3066038, a: 1}
+  sodaType: 7
+  foodSprite: {fileID: 21300000, guid: bab41d56f7c18894e86823d765f1be2f, type: 3}
 --- !u!65 &548444536
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7856,6 +7860,8 @@ MonoBehaviour:
   interactionPrompt: 
   sodaName: CLASSICO
   sodaColor: {r: 1, g: 0.21484114, b: 0, a: 1}
+  sodaType: 3
+  foodSprite: {fileID: 21300000, guid: b6048918df353384988b13f35f83479e, type: 3}
 --- !u!65 &566564357
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9093,6 +9099,8 @@ MonoBehaviour:
   interactionPrompt: 
   sodaName: MR. FRESH
   sodaColor: {r: 0.46274513, g: 0.31764707, b: 0.21960786, a: 1}
+  sodaType: 5
+  foodSprite: {fileID: 21300000, guid: 3a010b9c97fc4c94093b0eb4aea9942a, type: 3}
 --- !u!65 &735526687
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13000,6 +13008,8 @@ MonoBehaviour:
   interactionPrompt: 
   sodaName: MOG.
   sodaColor: {r: 0.8000001, g: 0.7960785, b: 0.8000001, a: 1}
+  sodaType: 6
+  foodSprite: {fileID: 21300000, guid: ecd5c72004d69bc4b884fbcec16982c6, type: 3}
 --- !u!65 &1049318043
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15078,7 +15088,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionPrompt: 
   sodaName: "NON O\u03D5 PEE"
-  sodaColor: {r: 0.20000002, g: 0.3019608, b: 0.098039225, a: 0}
+  sodaColor: {r: 0.20000002, g: 0.3019608, b: 0.098039225, a: 1}
+  sodaType: 2
+  foodSprite: {fileID: 21300000, guid: a7f76677193c5844488f3a0553f365ec, type: 3}
 --- !u!65 &1161731891
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19898,6 +19910,8 @@ MonoBehaviour:
   interactionPrompt: 
   sodaName: Glorpola
   sodaColor: {r: 0.15686275, g: 0.5686275, b: 0.54509807, a: 1}
+  sodaType: 1
+  foodSprite: {fileID: 21300000, guid: a6d635ad4255e8b4ea1871f6e4d258d3, type: 3}
 --- !u!65 &1459844951
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21289,7 +21303,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3344688, y: 0.8619914, z: 1.729096}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2035774958}
   m_Father: {fileID: 621293986}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1573010217
@@ -21306,6 +21321,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasCup: 0
   cupItem: {fileID: 715434669}
+  stockPoint: {fileID: 2035774958}
+  cupPrefab: {fileID: 637635113446587978, guid: 512134b90b27f724a96ef0ecd48a24cc, type: 3}
 --- !u!65 &1573010218
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23038,6 +23055,7 @@ MonoBehaviour:
   - {fileID: 897591059709525309, guid: 884085f78ffbb2c48ad5907e0939eeea, type: 3}
   customerSpawnPoint: {fileID: 1772905147}
   TableTop: {fileID: 977125712}
+  SodaTop: {fileID: 1573010217}
   dimensions:
   - {fileID: 11400000, guid: 8c455755c5c7126448e48b702c6c74a4, type: 2}
   - {fileID: 11400000, guid: 62672cabb9bd7b84d9c481c19aafae0d, type: 2}
@@ -23060,7 +23078,8 @@ MonoBehaviour:
   orderSignHolder: {fileID: 2083217853}
   foodGenerateAmount: 1
   drinkGenerateAmount: 0
-  happyCustomers: 0
+  happyCustomers: 5
+  orderItem: {fileID: 0}
 --- !u!4 &1694973647
 Transform:
   m_ObjectHideFlags: 0
@@ -26016,6 +26035,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: drink
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: deab65e92ae51ca4495b3d5b74973013, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27610,6 +27633,8 @@ MonoBehaviour:
   interactionPrompt: 
   sodaName: SAD DOG SODA
   sodaColor: {r: 0.16862746, g: 0.26666668, b: 0.39607847, a: 1}
+  sodaType: 8
+  foodSprite: {fileID: 21300000, guid: 7c68cb08ae1f7474394a786d9b39dbce, type: 3}
 --- !u!65 &1942725897
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28728,6 +28753,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023425280}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2035774957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2035774958}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2035774958
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035774957}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.6339203, z: 0.422}
+  m_LocalScale: {x: 2.9898155, y: 1.1601044, z: 0.57833683}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1573010216}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2041126750
 PrefabInstance:
   m_ObjectHideFlags: 0

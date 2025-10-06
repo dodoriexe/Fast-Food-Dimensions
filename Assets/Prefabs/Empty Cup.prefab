@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6674050612567580316}
   m_Layer: 0
   m_Name: Empty Cup
-  m_TagString: Untagged
+  m_TagString: EmptyCup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -6,18 +6,8 @@ public class SodaButton : Interactable
 {
     public string sodaName;
     public Color sodaColor;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public FoodType sodaType;
+    public Sprite foodSprite;
 
     public override void LookAt()
     {
@@ -28,8 +18,7 @@ public class SodaButton : Interactable
 
     public override void Interact()
     {
-
-        InteractText.Instance.ShowText(interactionPrompt);
+        GameManager.Instance.SodaTop.PourDrink(sodaType, foodSprite);
         base.Interact();
     }
 }

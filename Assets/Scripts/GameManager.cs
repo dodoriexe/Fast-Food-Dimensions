@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Transform customerSpawnPoint;
 
     public WindowTop TableTop;
+    public SodaTop SodaTop;
 
     public List<Dimension> dimensions;
     public List<Portal> dimensionPortals;
@@ -35,7 +36,7 @@ public class GameManager : MonoBehaviour
     public int drinkGenerateAmount;
 
     public int happyCustomers; // High Score
-
+    public GameObject orderItem;
 
     private void Awake()
     {
