@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public GameObject player;
     public GameObject playerHands;
+    public Camera playerCamera;
     public List<GameObject> customerPrefabs;
     public Transform customerSpawnPoint;
 
@@ -16,6 +17,8 @@ public class GameManager : MonoBehaviour
 
     public List<FoodStuffs> foodOrderItems;
     public List<FoodStuffs> drinkOrderItems;
+
+    public Customer currentCustomer;
 
     public float teleportCooldown = 0.25f;
     public float lastTeleportTime = -1f;
@@ -28,7 +31,9 @@ public class GameManager : MonoBehaviour
 
     public int foodGenerateAmount;
     public int drinkGenerateAmount;
-    
+
+    public int happyCustomers; // High Score
+
 
     private void Awake()
     {
@@ -62,9 +67,9 @@ public class GameManager : MonoBehaviour
         GameObject customerPrefab = customerPrefabs[Random.Range(0, customerPrefabs.Count)];
 
         GameObject customer = Instantiate(customerPrefab, customerSpawnPoint.position, Quaternion.identity);
-        Customer tempCustomer = customer.GetComponent<Customer>();
+        currentCustomer = customer.GetComponent<Customer>();
 
-        customerPrefab.transform.position = new Vector3(customerSpawnPoint.position.x, customerSpawnPoint.position.y + tempCustomer.groundOffset, customerSpawnPoint.position.z);
+        customerPrefab.transform.position = new Vector3(customerSpawnPoint.position.x, customerSpawnPoint.position.y + currentCustomer.groundOffset, customerSpawnPoint.position.z);
     }
 
     public void ChangeDimension(int newDimensionIndex)

@@ -7,7 +7,9 @@ public class Customer : MonoBehaviour
     public float groundOffset;
     public float driveSpeed;
     public AudioSource audioSource;
+
     public AudioClip[] driveClips; // Assign 2 clips in the Inspector
+    public AudioClip happySoundClip;
 
     public CustomerStates state;
 
@@ -53,6 +55,24 @@ public class Customer : MonoBehaviour
             {
                 GameObject orderObj = Instantiate(item.orderItem);
                 float randomCook = Random.Range(0f, 1f);
+
+                if(randomCook < 0.3f)
+                {
+                    randomCook = 0f; // Raw
+                }
+                else if (randomCook < 0.5f)
+                {
+                    randomCook = 0.33f; // Rare
+                }
+                else if (randomCook < 0.7f)
+                {
+                    randomCook = 0.66f; // Medium
+                }
+                else
+                {
+                    randomCook = 0.9f; // Well Done
+                }
+
                 orderObj.GetComponent<OrderItem>().Initialize(randomCook, item.foodType, item.foodSprite);
 
                 orderObj.transform.SetParent(GameManager.Instance.orderSignHolder.transform, false);
@@ -77,6 +97,43 @@ public class Customer : MonoBehaviour
             audioSource.Play();
         }
     }
+
+    public void PlayHappySound()
+    {
+        if (driveClips != null && driveClips.Length > 0 && audioSource != null)
+        {
+            int idx = Random.Range(0, driveClips.Length);
+            audioSource.clip = happySoundClip;
+            audioSource.Play();
+        }
+    }
+
+    internal void CompleteOrder(bool orderMatches)
+    {
+        if(state != CustomerStates.WaitingForOrder)
+        {
+            return;
+        }
+
+        if (orderMatches)
+        {
+            Debug.Log("Order Complete! Customer is happy!");
+            GameManager.Instance.happyCustomers += 1;
+            state = CustomerStates.Goodbye;
+            // Clear order sign
+            foreach (Transform child in GameManager.Instance.orderSignHolder.transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+            // Drive away
+            PlayHappySound();
+        }
+        else
+        {
+
+        }
+    }
+
 }
 
 public enum CustomerType
