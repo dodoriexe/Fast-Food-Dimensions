@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d6b633d64d80f4684acb2b20d49738, type: 3}
   m_Name: Meat Dimension
   m_EditorClassIdentifier: 
-  dimensionName: Meatropolis
-  dimensionColor: {r: 1, g: 0, b: 0.32400036, a: 1}
+  dimensionName: Vegtopia
+  dimensionColor: {r: 0, g: 0.4056604, b: 0.010982019, a: 1}
