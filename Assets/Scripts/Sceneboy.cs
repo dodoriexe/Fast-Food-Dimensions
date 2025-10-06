@@ -16,6 +16,7 @@ public class Sceneboy : MonoBehaviour
         */
 
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // Update is called once per frame
