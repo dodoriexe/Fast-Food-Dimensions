@@ -11,6 +11,9 @@ TagManager:
   - WindowTop
   - Paperbag
   - EmptyCup
+  - Red Bug
+  - Brown Bug
+  - Green Bug
   layers:
   - Default
   - TransparentFX
