@@ -3,11 +3,12 @@ using UnityEngine;
 public class SuccTeleport : MonoBehaviour
 {
     public GameObject teleportPoint;
+    private AudioSource _succSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        _succSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,6 +27,8 @@ public class SuccTeleport : MonoBehaviour
             other.GetComponent<Rigidbody>().isKinematic = true;
             other.transform.position = teleportPoint.transform.position;
             other.GetComponent<Rigidbody>().isKinematic = false;
+            
+            _succSound.Play();
         }
     }
 }

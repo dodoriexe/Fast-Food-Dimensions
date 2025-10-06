@@ -9,9 +9,12 @@ public class Dial : Interactable
     public TMPro.TextMeshPro DimensionDisplay;
     public GameObject doorObject;
     public bool isDoorOpen = true;
+    
+    private AudioSource _dialSoundPlayer;
 
     void Start()
     {
+        _dialSoundPlayer = gameObject.GetComponent<AudioSource>();
         ChangeDimension();
     }
 
@@ -33,6 +36,7 @@ public class Dial : Interactable
 
     public override void Interact()
     {
+        _dialSoundPlayer.Play();
         if (isDoorOpen)
         {
             CloseDoor();

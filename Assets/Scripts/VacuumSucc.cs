@@ -3,17 +3,28 @@ using UnityEngine;
 public class VacuumSucc : MonoBehaviour
 {
     public GameObject succPoint;
+    
+    private ParticleSystem _succParticle;
+    private bool _isSucking;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        _succParticle = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        if (!_isSucking &&  _succParticle.isPlaying)
+        {
+            _succParticle.Stop();
+        }
         
+        if (_isSucking)
+        {
+            _isSucking = false;
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -32,6 +43,12 @@ public class VacuumSucc : MonoBehaviour
             {
                 Vector3 direction = (succPoint.transform.position - other.transform.position).normalized;
                 rb.AddForce(direction * 10f, ForceMode.Impulse);
+                _isSucking = true;
+                
+                if (!_succParticle.isPlaying)
+                {
+                    _succParticle.Play();
+                }
             }
         }
     }
