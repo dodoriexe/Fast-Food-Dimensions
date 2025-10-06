@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class PortalTeleporter : MonoBehaviour
 {
+    public Camera camera;
     public Transform player;
     public Transform receiver;
+
     public float exitOffset;
 
     private bool playerIsOverlapping = false;
+    
+    private GameManager gameManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -29,29 +33,16 @@ public class PortalTeleporter : MonoBehaviour
 
             if (dotProduct < 0f)
             {
-                // Calculate the relative position of the player to the portal in portal's local space
-                Vector3 localPosition = transform.InverseTransformPoint(player.position);
-
-                // Calculate the difference in rotation between the two portals
-                Quaternion portalRotDiff = receiver.rotation * Quaternion.Inverse(transform.rotation);
-
-                // Rotate the local position by the rotation difference
-                Vector3 newLocalPosition = portalRotDiff * localPosition;
-
-                // Offset to move player slightly forward from the receiver to avoid immediate re-trigger
-                Vector3 offset = receiver.forward * exitOffset;
-
-                // Set the player's new position in world space relative to the receiver, with offset
+                // Disable Teleporter Temporarily.
                 StartCoroutine(DisableReceiverTemporarily(GameManager.Instance.teleportCooldown));
-                player.GetComponent<Rigidbody>().isKinematic = true;
-
-                player.position = receiver.TransformPoint(newLocalPosition) + offset;
-
-                player.GetComponent<Rigidbody>().isKinematic = false;
-
-                // Calculate the difference in Y rotation between the two portals
-                float yRotDiff = receiver.eulerAngles.y - transform.eulerAngles.y + 180f;
-                player.rotation = Quaternion.Euler(0f, player.eulerAngles.y + yRotDiff, 0f);
+                
+                // Teleport player to receiver.
+                Vector3 offset = (receiver.forward * 0.5f) - new Vector3(0, receiver.GetComponent<BoxCollider>().size.y * 2, 0);
+                player.position = receiver.position + offset;
+                
+                // Swap player skybox to receiver camera skybox.
+                gameManager.playerCamera.GetComponent<Skybox>().material = receiver.GetComponent<PortalTeleporter>()
+                    .camera.GetComponent<Skybox>().material;
 
                 Debug.Log("Teleported player through portal.");
 

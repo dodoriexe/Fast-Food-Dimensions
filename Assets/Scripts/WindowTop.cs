@@ -7,7 +7,7 @@ public class WindowTop : MonoBehaviour
     public bool hasBag = false;
     public GameObject bagItem;
 
-    public List<FoodStuffs> bagContents = new List<FoodStuffs>();
+    public List<OrderItemHolder> bagContents = new List<OrderItemHolder>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,9 +31,12 @@ public class WindowTop : MonoBehaviour
     {
         if(other.CompareTag("Paperbag"))
         {
-            hasBag = true;
-            bagItem.SetActive(true);
-            Destroy(other.gameObject);
+            if(!hasBag)
+            {
+                hasBag = true;
+                bagItem.SetActive(true);
+                Destroy(other.gameObject);
+            }
         }
 
         if(other.GetComponent<FoodStuffs>())
@@ -42,7 +45,7 @@ public class WindowTop : MonoBehaviour
             if(hasBag)
             {
                 FoodStuffs fs = other.GetComponent<FoodStuffs>();
-                bagContents.Add(fs);
+                bagContents.Add(new OrderItemHolder(fs.foodType, fs.cookPercentage, fs.orderItem, fs.foodSprite));
                 Destroy(other.gameObject);
             }
         }
@@ -65,9 +68,10 @@ public class WindowTop : MonoBehaviour
             bool itemFound = false;
             foreach (var bagItem in bagContents)
             {
-                if (item.foodType == bagItem.foodType && bagItem.cookPercentage >= 80f)
+                if (item.GetFoodType() == bagItem.GetFoodType())
                 {
-                    matchesCookPercentage = FoodStuffs.GetCookLevel(item.cookPercentage) == FoodStuffs.GetCookLevel(bagItem.cookPercentage);
+                    Debug.Log($"{FoodStuffs.GetCookLevel(item.GetCookPercentage())} vs. {FoodStuffs.GetCookLevel(bagItem.GetCookPercentage())}");
+                    matchesCookPercentage = FoodStuffs.GetCookLevel(item.GetCookPercentage()) == FoodStuffs.GetCookLevel(bagItem.GetCookPercentage());
                     if (matchesCookPercentage)
                     {
                         itemFound = true;
@@ -81,6 +85,8 @@ public class WindowTop : MonoBehaviour
                 }
             }
             GameManager.Instance.currentCustomer.CompleteOrder(orderMatches);
+            ClearBag();
+            bagContents.Clear();
         }
     }
 }

@@ -12,10 +12,16 @@ TagManager:
   - WindowTop
   - Paperbag
   - EmptyCup
+<<<<<<< HEAD
 =======
   serializedVersion: 2
   tags: []
 >>>>>>> origin
+=======
+  - Red Bug
+  - Brown Bug
+  - Green Bug
+>>>>>>> 7a0ffdc5ba6b21b63451f39235408535c800cc96
   layers:
   - Default
   - TransparentFX
@@ -27,9 +33,15 @@ TagManager:
   - 
   - 
   - 
+<<<<<<< HEAD
   - 
   - 
   - 
+=======
+  - Floor
+  - Portal
+  - Portal Invisible
+>>>>>>> 7a0ffdc5ba6b21b63451f39235408535c800cc96
   - 
   - 
   - 

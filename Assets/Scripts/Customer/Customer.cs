@@ -13,12 +13,13 @@ public class Customer : MonoBehaviour
 
     public CustomerStates state;
 
-    public List<FoodStuffs> order;
+    public List<OrderItemHolder> order;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        List<FoodStuffs> myOrder = (GameManager.Instance.GenerateOrder());
+        List<OrderItemHolder> myOrder = (GameManager.Instance.GenerateOrder());
+
         order = myOrder;
 
     }
@@ -41,7 +42,7 @@ public class Customer : MonoBehaviour
 
                 break;
             case CustomerStates.Goodbye:
-
+                transform.position += Vector3.forward * driveSpeed;
                 break;
             default:
                 break;
@@ -51,29 +52,30 @@ public class Customer : MonoBehaviour
     {
         foreach (var item in order)
         {
-            if (item != null && item.orderItem != null)
+            if (item != null)
             {
-                GameObject orderObj = Instantiate(item.orderItem);
-                float randomCook = Random.Range(0f, 1f);
+                float randomCook = item.GetCookPercentage();
 
-                if(randomCook < 0.3f)
+                GameObject orderObj = Instantiate(item.GetOrderItem());
+
+                if(randomCook < 0.33f)
                 {
                     randomCook = 0f; // Raw
                 }
-                else if (randomCook < 0.5f)
+                else if (randomCook < .66f)
                 {
-                    randomCook = 0.33f; // Rare
+                    randomCook = 0.1f; // Rare
                 }
-                else if (randomCook < 0.7f)
+                else if (randomCook < 0.75f)
                 {
-                    randomCook = 0.66f; // Medium
+                    randomCook = 0.33f; // Medium
                 }
                 else
                 {
-                    randomCook = 0.9f; // Well Done
+                    randomCook = 0.75f; // Well Done
                 }
 
-                orderObj.GetComponent<OrderItem>().Initialize(randomCook, item.foodType, item.foodSprite);
+                orderObj.GetComponent<OrderItem>().Initialize(randomCook, item.GetFoodType(), item.GetFoodSprite());
 
                 orderObj.transform.SetParent(GameManager.Instance.orderSignHolder.transform, false);
                 PlayDriveSound();
@@ -114,6 +116,7 @@ public class Customer : MonoBehaviour
         {
             return;
         }
+        Debug.Log($"Order Complete Called! Order Matches: {orderMatches}");
 
         if (orderMatches)
         {

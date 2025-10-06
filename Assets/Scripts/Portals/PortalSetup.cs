@@ -2,21 +2,22 @@ using UnityEngine;
 
 public class PortalSetup : MonoBehaviour
 {
+    // Kitchen
     public Camera cameraA;
     public Material cameraMatA;
 
+    // Pantry
     public Camera cameraB;
     public Material cameraMatB;
 
+    // Meatropolis
     public Camera cameraC;
     public Material cameraMatC;
 
+    // Drill
     public Camera cameraD;
     public Material cameraMatD;
-
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
         if(cameraA.targetTexture != null)
@@ -50,11 +51,5 @@ public class PortalSetup : MonoBehaviour
 
         cameraD.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
         cameraMatD.mainTexture = cameraD.targetTexture;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
