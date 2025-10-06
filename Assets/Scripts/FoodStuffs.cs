@@ -27,9 +27,9 @@ public class FoodStuffs : Draggable
     // Update is called once per frame
     void Update()
     {
-        if(this.transform.localScale != new Vector3(0.4f,0.4f,0.4f))
+        if (this.transform.localScale != desiredScale)
         {
-            this.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+            this.transform.localScale = new Vector3(desiredScale.x, desiredScale.y, desiredScale.z);
         }
     }
 
@@ -185,6 +185,11 @@ public enum FoodType
 {
     // Food
     Burger,
+
+    // Ingredients/Food
+    Tomato,
+    Lettuce,
+    Pickle,
 
     // Drinks
     DrinkGlorpola,
