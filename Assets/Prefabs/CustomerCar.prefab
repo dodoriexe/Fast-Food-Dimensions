@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2486029420029573906}
   - component: {fileID: 3066499656644891975}
   - component: {fileID: 1054324178787972419}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Design
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 3394296525601632962}
   - component: {fileID: 4452731575396433790}
   - component: {fileID: 8834090288014684269}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Color
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7442835594032505832}
-  m_Layer: 0
+  - component: {fileID: 7405654519555696923}
+  - component: {fileID: 7870754947077997948}
+  - component: {fileID: -7518313730754692512}
+  m_Layer: 6
   m_Name: CustomerCar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +200,7 @@ Transform:
   m_GameObject: {fileID: 7782663420028959058}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.08, y: 1.1869884, z: -28.76}
+  m_LocalPosition: {x: 20.164618, y: 1.29, z: -26.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -206,6 +209,72 @@ Transform:
   - {fileID: 1678892414100007837}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7405654519555696923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7782663420028959058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df922e9763c0f1d458a0ed7bebdfd603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  followDistance: 10
+  detectionRadius: 10
+  customerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!54 &7870754947077997948
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7782663420028959058}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &-7518313730754692512
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7782663420028959058}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2.1154823, z: 1}
+  m_Center: {x: 0, y: 0.55774117, z: 0}
 --- !u!1 &7996056365655142546
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +286,7 @@ GameObject:
   - component: {fileID: 1678892414100007837}
   - component: {fileID: 6923535457129691146}
   - component: {fileID: 1448260912833662047}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
