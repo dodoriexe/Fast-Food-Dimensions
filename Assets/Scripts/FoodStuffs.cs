@@ -53,6 +53,7 @@ public class FoodStuffs : Draggable
 
         if(other.CompareTag("WindowTop"))
         {
+            // If windowtop has a bag
             // Bag Item
         }
     }
@@ -119,7 +120,7 @@ public class FoodStuffs : Draggable
         {
             return CookLevel.Raw;
         }
-        if (cookPercent < .25f)
+        if (cookPercent < .3f)
         {
             return CookLevel.Rare;
         }
@@ -141,7 +142,7 @@ public class FoodStuffs : Draggable
     {
         Color tempColor = new Color(0, 0, 0);
 
-        if (cookPercent < .25f)
+        if (cookPercent < .33)
         {
             tempColor = new Color(0.3254901960784314f, 1, 0);
         }
@@ -149,10 +150,15 @@ public class FoodStuffs : Draggable
         {
             tempColor = new Color(1,1,0);
         }
-        else if (cookPercent < 100f)
+        else if (cookPercent < 0.99)
         {
             tempColor = new Color(0.8666666666666667f, 0.12549019607843137f, 0.12549019607843137f);
         }
+        else if (cookPercent == 100f)
+        {
+            tempColor = Color.black;
+        }
+
 
         return tempColor;
     }

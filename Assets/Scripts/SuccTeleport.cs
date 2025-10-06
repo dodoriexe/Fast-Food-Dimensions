@@ -20,6 +20,8 @@ public class SuccTeleport : MonoBehaviour
     {
         if (other.GetComponent<Draggable>())
         {
+            Draggable draggable = other.GetComponent<Draggable>();
+
             other.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
             other.GetComponent<Rigidbody>().isKinematic = true;
             other.transform.position = teleportPoint.transform.position;

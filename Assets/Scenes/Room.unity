@@ -2613,6 +2613,7 @@ GameObject:
   m_Component:
   - component: {fileID: 523417189}
   - component: {fileID: 523417190}
+  - component: {fileID: 523417191}
   m_Layer: 0
   m_Name: WindowTop
   m_TagString: WindowTop
@@ -2650,12 +2651,27 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 0.12815082, z: 1}
   m_Center: {x: 0, y: 0.55143267, z: 0}
+--- !u!114 &523417191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523417188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d92ce54c4af9fc74b808cb315ff792d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasBag: 0
+  bagItem: {fileID: 0}
+  bagContents: []
 --- !u!1 &539457818
 GameObject:
   m_ObjectHideFlags: 0
@@ -8640,6 +8656,7 @@ MonoBehaviour:
   - {fileID: 3765275768567454738, guid: c02a9e1302a3a6946bacb9f8667295af, type: 3}
   drinkOrderItems:
   - {fileID: 3765275768567454738, guid: 512134b90b27f724a96ef0ecd48a24cc, type: 3}
+  currentCustomer: {fileID: 0}
   teleportCooldown: 1
   lastTeleportTime: -1
   kitchenCam: {fileID: 1124075938}
@@ -8648,6 +8665,7 @@ MonoBehaviour:
   orderSignHolder: {fileID: 1687146883}
   foodGenerateAmount: 1
   drinkGenerateAmount: 0
+  happyCustomers: 0
 --- !u!4 &1694973647
 Transform:
   m_ObjectHideFlags: 0

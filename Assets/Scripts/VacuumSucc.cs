@@ -20,6 +20,13 @@ public class VacuumSucc : MonoBehaviour
     {
         if (other.GetComponent<Draggable>())
         {
+            Draggable draggable = other.GetComponent<Draggable>();
+
+            if (draggable.beingHeld)
+            {
+                draggable.InteractLetGo();
+            }
+
             Rigidbody rb = other.GetComponent<Rigidbody>();
             if (rb != null && succPoint != null)
             {

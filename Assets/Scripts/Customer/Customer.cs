@@ -7,13 +7,13 @@ public class Customer : MonoBehaviour
     public float groundOffset;
     public float driveSpeed;
     public AudioSource audioSource;
+
     public AudioClip[] driveClips; // Assign 2 clips in the Inspector
+    public AudioClip happySoundClip;
 
     public CustomerStates state;
 
     public List<FoodStuffs> order;
-
-    public int customersServed; // High score
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -66,11 +66,11 @@ public class Customer : MonoBehaviour
                 }
                 else if (randomCook < 0.7f)
                 {
-                    randomCook = 0.5f; // Medium
+                    randomCook = 0.66f; // Medium
                 }
                 else
                 {
-                    randomCook = 1f; // Well Done
+                    randomCook = 0.9f; // Well Done
                 }
 
                 orderObj.GetComponent<OrderItem>().Initialize(randomCook, item.foodType, item.foodSprite);
@@ -97,6 +97,43 @@ public class Customer : MonoBehaviour
             audioSource.Play();
         }
     }
+
+    public void PlayHappySound()
+    {
+        if (driveClips != null && driveClips.Length > 0 && audioSource != null)
+        {
+            int idx = Random.Range(0, driveClips.Length);
+            audioSource.clip = happySoundClip;
+            audioSource.Play();
+        }
+    }
+
+    internal void CompleteOrder(bool orderMatches)
+    {
+        if(state != CustomerStates.WaitingForOrder)
+        {
+            return;
+        }
+
+        if (orderMatches)
+        {
+            Debug.Log("Order Complete! Customer is happy!");
+            GameManager.Instance.happyCustomers += 1;
+            state = CustomerStates.Goodbye;
+            // Clear order sign
+            foreach (Transform child in GameManager.Instance.orderSignHolder.transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+            // Drive away
+            PlayHappySound();
+        }
+        else
+        {
+
+        }
+    }
+
 }
 
 public enum CustomerType

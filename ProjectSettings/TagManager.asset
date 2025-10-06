@@ -9,6 +9,8 @@ TagManager:
   - Consumer
   - GrillTop
   - WindowTop
+  - Paperbag
+  - EmptyCup
   layers:
   - Default
   - TransparentFX
