@@ -14,6 +14,7 @@ TagManager:
   - Red Bug
   - Brown Bug
   - Green Bug
+  - Pickaxe
   layers:
   - Default
   - TransparentFX
