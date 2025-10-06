@@ -39,13 +39,13 @@ public class Sceneboy : MonoBehaviour
     public void ToGameScreen()
     {
         Debug.Log("To Game Screen");
-        SceneManager.LoadScene("Room");
+        SceneManager.LoadScene("Game");
     }
 
-    public void ToAboutScreen()
+    public void ToMenu()
     {
-        Debug.Log("To Game Screen");
-        SceneManager.LoadScene("About");
+        Debug.Log("To Menu Screen");
+        SceneManager.LoadScene("Title");
     }
 
     public void ExitGame()
