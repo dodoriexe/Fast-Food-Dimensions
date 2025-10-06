@@ -37,10 +37,9 @@ public class Customer : MonoBehaviour
 
                 StartCoroutine(ShowOrderWithDelay(0.5f));
                 state = CustomerStates.WaitingForOrder;
-
+                GameManager.Instance.StartTimer();
                 break;
             case CustomerStates.WaitingForOrder:
-
                 break;
             case CustomerStates.Goodbye:
                 transform.position += Vector3.forward * driveSpeed;
@@ -142,6 +141,7 @@ public class Customer : MonoBehaviour
             }
             // Drive away
             PlayHappySound();
+            GameManager.Instance.customerTimer.PauseTimer();
         }
         else
         {
@@ -156,10 +156,30 @@ public class Customer : MonoBehaviour
             }
 
             PlaySadSound();
+            GameManager.Instance.customerTimer.PauseTimer();
             state = CustomerStates.Goodbye;
         }
     }
 
+    internal void OnTimeExpired()
+    {
+        if (state != CustomerStates.WaitingForOrder)
+        {
+            return;
+        }
+        Debug.Log("Customer time expired! They are leaving unhappy.");
+        
+        // Deal Damage(?)
+
+        GameManager.Instance.TableTop.ClearBag();
+        // Clear order sign
+        foreach (Transform child in GameManager.Instance.orderSignHolder.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        PlaySadSound();
+        state = CustomerStates.Goodbye;
+    }
 }
 
 public enum CustomerType

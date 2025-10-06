@@ -19,7 +19,7 @@ public class SuccTeleport : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Draggable>())
+        if (other.GetComponent<Draggable>() && !(other.CompareTag("Brown Bug") || other.CompareTag("Red Bug") || other.CompareTag("Green Bug")))
         {
             Draggable draggable = other.GetComponent<Draggable>();
 

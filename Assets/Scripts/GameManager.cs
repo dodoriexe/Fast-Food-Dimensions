@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public Transform customerSpawnPoint;
 
     public WindowTop TableTop;
+    public SodaTop SodaTop;
+
+    public CustomerTimer customerTimer;
 
     public List<Dimension> dimensions;
     public List<Portal> dimensionPortals;
@@ -35,7 +38,7 @@ public class GameManager : MonoBehaviour
     public int drinkGenerateAmount;
 
     public int happyCustomers; // High Score
-
+    public GameObject orderItem;
 
     private void Awake()
     {
@@ -103,6 +106,32 @@ public class GameManager : MonoBehaviour
 
         int foods = items - drinks;
         return (foods, drinks, items);
+    }
+
+    public static float GetCustomerTime(int score)
+    {
+        // starting and ending times in seconds
+        const float startTime = 10f * 60f; // 10 minutes
+        const float minTime = 2.5f * 60f;  // 2 minutes 30 seconds
+        const float secondsStep = 30f;     // how much time to remove every X customers
+        const int customersPerStep = 2;    // after how many customers we shorten
+
+        // compute how many steps we've passed
+        int steps = score / customersPerStep;
+        float time = startTime - steps * secondsStep;
+
+        // clamp to min time
+        if (time < minTime)
+            time = minTime;
+
+        return time; // in seconds
+    }
+
+    public void StartTimer()
+    {
+        customerTimer.totalTimeSeconds = GetCustomerTime(happyCustomers);
+        customerTimer.ResetTimer();
+        customerTimer.StartTimer();
     }
 
     public void QuitGame()
