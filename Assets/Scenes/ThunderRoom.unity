@@ -12113,6 +12113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBag: 0
   bagItem: {fileID: 1930947921}
+  isColliding: 0
   bagContents: []
 --- !u!65 &977125713
 BoxCollider:
@@ -22361,6 +22362,7 @@ MonoBehaviour:
   customerPrefabs:
   - {fileID: 897591059709525309, guid: 884085f78ffbb2c48ad5907e0939eeea, type: 3}
   customerSpawnPoint: {fileID: 1772905147}
+  TableTop: {fileID: 977125712}
   dimensions:
   - {fileID: 11400000, guid: 8c455755c5c7126448e48b702c6c74a4, type: 2}
   - {fileID: 11400000, guid: 62672cabb9bd7b84d9c481c19aafae0d, type: 2}
