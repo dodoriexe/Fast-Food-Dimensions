@@ -187,12 +187,13 @@ public enum FoodType
     Burger,
 
     // Drinks
-    DrinkGreenPee,
-    DrinkSadDog,
-    DrinkClassico,
     DrinkGlorpola,
+    DrinkGreenPee,
+    DrinkClassico,
     DrinkInk,
-    DrinkMog,
+
     DrinkMisterFresh,
-    DrinkElfStrike
+    DrinkMog,
+    DrinkElfStrike,
+    DrinkSadDog
 }
