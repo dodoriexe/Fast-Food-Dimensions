@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public List<GameObject> customerPrefabs;
     public Transform customerSpawnPoint;
 
+    public EndGameWaiter endGameWaiter;
+
     public WindowTop TableTop;
     public SodaTop SodaTop;
 
@@ -132,6 +134,16 @@ public class GameManager : MonoBehaviour
         customerTimer.totalTimeSeconds = GetCustomerTime(happyCustomers);
         customerTimer.ResetTimer();
         customerTimer.StartTimer();
+    }
+
+    public void SwapSkybox(Skybox skybox)
+    {
+        playerCamera.GetComponent<Skybox>().material = skybox.material;
+    }
+
+    public void GameOver()
+    {
+        endGameWaiter.GameOver(happyCustomers);
     }
 
     public void QuitGame()

@@ -110,8 +110,8 @@ MonoBehaviour:
   turnSpeed: 20
   followDistance: 50
   ifNotFollowingTimeTillDeath: 10
-  launchForceVertical: 300
-  launchForceHorizontal: 200
+  launchForceVertical: 150
+  launchForceHorizontal: 100
 --- !u!1 &5199850284176554182
 GameObject:
   m_ObjectHideFlags: 0
