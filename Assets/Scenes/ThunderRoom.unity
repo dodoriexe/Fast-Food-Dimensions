@@ -23068,7 +23068,14 @@ MonoBehaviour:
   foodOrderItems:
   - {fileID: 3765275768567454738, guid: c02a9e1302a3a6946bacb9f8667295af, type: 3}
   drinkOrderItems:
-  - {fileID: 3765275768567454738, guid: 512134b90b27f724a96ef0ecd48a24cc, type: 3}
+  - {fileID: 3765275768567454738, guid: 11b2b0604c12f054ea2aa78b4ae2e24b, type: 3}
+  - {fileID: 3765275768567454738, guid: 444e54ec3f377394a9ad590aeeee4b78, type: 3}
+  - {fileID: 3765275768567454738, guid: 2a64600620231c94b98dc9c9a81e4463, type: 3}
+  - {fileID: 3765275768567454738, guid: 4ac3ea6dec8ccd24480495f002a9156f, type: 3}
+  - {fileID: 3765275768567454738, guid: dcf91a17074d34948a7daae32cd6a945, type: 3}
+  - {fileID: 3765275768567454738, guid: decf02691a2815f4983e756fb67c8182, type: 3}
+  - {fileID: 3765275768567454738, guid: add20e8908732c24ba2324552f00d037, type: 3}
+  - {fileID: 3765275768567454738, guid: 1513ce03ae1c0834a8e966efa0b2fd14, type: 3}
   currentCustomer: {fileID: 0}
   teleportCooldown: 1
   lastTeleportTime: -1
