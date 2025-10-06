@@ -9,6 +9,9 @@ TagManager:
   - Consumer
   - GrillTop
   - WindowTop
+  - Red Bug
+  - Brown Bug
+  - Green Bug
   layers:
   - Default
   - TransparentFX
@@ -16,8 +19,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - faf
+  - 'Red '
   - 
   - 
   - Floor
