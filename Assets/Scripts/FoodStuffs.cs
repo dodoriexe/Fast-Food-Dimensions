@@ -114,6 +114,12 @@ public class FoodStuffs : Draggable
         }
     }
 
+    public OrderItemHolder toOrderItemHolder()
+    {
+        OrderItemHolder orderItemHolder = new OrderItemHolder(foodType, cookPercentage, orderItem, foodSprite);
+        return orderItemHolder;
+    }
+
     public static CookLevel GetCookLevel(float cookPercent)
     {
         if(cookPercent == 0f)
@@ -163,6 +169,8 @@ public class FoodStuffs : Draggable
         return tempColor;
     }
 }
+
+
 
 public enum CookLevel
 {
