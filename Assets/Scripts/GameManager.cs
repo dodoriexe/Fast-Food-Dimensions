@@ -134,6 +134,11 @@ public class GameManager : MonoBehaviour
         customerTimer.StartTimer();
     }
 
+    public void SwapSkybox(Skybox skybox)
+    {
+        playerCamera.GetComponent<Skybox>().material = skybox.material;
+    }
+
     public void QuitGame()
     {
         Application.Quit();
