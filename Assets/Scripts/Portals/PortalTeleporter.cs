@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class PortalTeleporter : MonoBehaviour
 {
+    public Camera camera;
     public Transform player;
     public Transform receiver;
+
     public float exitOffset;
 
     private bool playerIsOverlapping = false;
+    
+    private GameManager gameManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -52,6 +56,10 @@ public class PortalTeleporter : MonoBehaviour
                 // Calculate the difference in Y rotation between the two portals
                 float yRotDiff = receiver.eulerAngles.y - transform.eulerAngles.y + 180f;
                 player.rotation = Quaternion.Euler(0f, player.eulerAngles.y + yRotDiff, 0f);
+                
+                // Swap player skybox to receiver camera skybox.
+                gameManager.playerCamera.GetComponent<Skybox>().material = receiver.GetComponent<PortalTeleporter>()
+                    .camera.GetComponent<Skybox>().material;
 
                 Debug.Log("Teleported player through portal.");
 

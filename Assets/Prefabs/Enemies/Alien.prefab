@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cd8959a78e177b4db09ceab24ed67f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 6
   turnSpeed: 20
   followDistance: 50
   ifNotFollowingTimeTillDeath: 10
