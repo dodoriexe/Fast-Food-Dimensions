@@ -1,13 +1,13 @@
 using System;
 using UnityEngine;
 
-[Serializable]
+[System.Serializable]
 public class OrderItemHolder
 {
-    FoodType foodType;
-    float cookPercentage;
-    GameObject orderItem;
-    Sprite foodSprite;
+    public FoodType foodType;
+    public float cookPercentage;
+    public GameObject orderItem;
+    public Sprite foodSprite;
 
     public OrderItemHolder(FoodType foodType, float cookPercentage, GameObject orderItem, Sprite foodSprite)
     {

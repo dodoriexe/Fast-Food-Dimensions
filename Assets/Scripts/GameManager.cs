@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public List<GameObject> customerPrefabs;
     public Transform customerSpawnPoint;
 
+    public WindowTop TableTop;
+
     public List<Dimension> dimensions;
     public List<Portal> dimensionPortals;
     public int currentDimensionIndex;
@@ -86,6 +88,23 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public static (int foods, int drinks, int items) GetOrderCounts(int score)
+    {
+        int drinks = 0;
+        int items = 2;
+
+        if (score >= 3) { drinks = 1; items = 2; }
+        if (score >= 6) { drinks = 1; items = 3; }
+        if (score >= 10) { drinks = 1; items = 4; }
+        if (score >= 15) { drinks = 2; items = 5; }
+        if (score >= 20) { drinks = 2; items = 6; }
+        if (score >= 25) { drinks = 3; items = 7; }
+        if (score >= 30) { drinks = 4; items = 8; }
+
+        int foods = items - drinks;
+        return (foods, drinks, items);
+    }
+
     public void QuitGame()
     {
         Application.Quit();
@@ -95,6 +114,8 @@ public class GameManager : MonoBehaviour
     {
         List<OrderItemHolder> tempOrder = new List<OrderItemHolder>();
         // Generate Item Displays
+        foodGenerateAmount = GetOrderCounts(happyCustomers).foods;
+        drinkGenerateAmount = GetOrderCounts(happyCustomers).drinks;
 
         // Food
         for (int i = 0; i < foodGenerateAmount; i++)
@@ -120,9 +141,9 @@ public class GameManager : MonoBehaviour
     {
         if (foodOrderItems == null || foodOrderItems.Count == 0)
             return null;
-        float step = 0.01f;
+        //float step = 0.01f;
         OrderItemHolder tempItem = foodOrderItems[Random.Range(0, foodOrderItems.Count)].toOrderItemHolder();
-        tempItem.SetCookPercentage(Mathf.Round(Random.Range(0, 1f) / step) * step);
+        tempItem.SetCookPercentage(Random.Range(0f, 1f));
         return tempItem;
     }
 
@@ -130,9 +151,9 @@ public class GameManager : MonoBehaviour
     {
         if (drinkOrderItems == null || drinkOrderItems.Count == 0)
             return null;
-        float step = 0.01f;
-        OrderItemHolder tempItem = foodOrderItems[Random.Range(0, foodOrderItems.Count)].toOrderItemHolder();
-        tempItem.SetCookPercentage(Mathf.Round(Random.Range(0, 1f) / step) * step);
-        return drinkOrderItems[Random.Range(0, drinkOrderItems.Count)].toOrderItemHolder();
+        //float step = 0.01f;
+        OrderItemHolder tempItem = drinkOrderItems[Random.Range(0, drinkOrderItems.Count)].toOrderItemHolder();
+        tempItem.SetCookPercentage(Random.Range(0f, 1f));
+        return tempItem;
     }
 }
