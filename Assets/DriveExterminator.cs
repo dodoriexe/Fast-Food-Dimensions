@@ -18,8 +18,17 @@ public class DriveExterminator : MonoBehaviour
     {
         if(other.CompareTag("Consumer"))
         {
-            Destroy(other.gameObject);
-            GameManager.Instance.SpawnCustomer();
+            if (other.GetComponentInParent<Customer>().unhappy)
+            {
+                GameManager.Instance.GameOver();
+                return;
+            }
+            else
+            {
+                Destroy(other.gameObject);
+                GameManager.Instance.SpawnCustomer();
+            }
+
         }
     }
 }

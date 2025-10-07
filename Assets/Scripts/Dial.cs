@@ -9,9 +9,14 @@ public class Dial : Interactable
     public TMPro.TextMeshPro DimensionDisplay;
     public GameObject doorObject;
     public bool isDoorOpen = true;
+    
+    private AudioSource _dialSoundPlayer;
+    private AudioSource _doorSoundPlayer;
 
     void Start()
     {
+        _dialSoundPlayer = gameObject.GetComponent<AudioSource>();
+        _doorSoundPlayer = doorObject.GetComponent<AudioSource>();
         ChangeDimension();
     }
 
@@ -33,6 +38,7 @@ public class Dial : Interactable
 
     public override void Interact()
     {
+        _dialSoundPlayer.Play();
         if (isDoorOpen)
         {
             CloseDoor();
@@ -78,12 +84,14 @@ public class Dial : Interactable
     System.Collections.IEnumerator CloseThenOpenCoroutine(ClosingScript closingScript)
     {
         closingScript.Close();
+        _doorSoundPlayer.Play();
         // Wait for the door to finish closing (adjust time as needed)
         yield return new WaitForSeconds(2.0f);
         UpdateDimensionLabel();
         yield return new WaitForSeconds(1.0f); // Wait a moment before changing dimension
         ChangeDimension();
         closingScript.Open();
+        _doorSoundPlayer.Play();
         isDoorOpen = true;
     }
 

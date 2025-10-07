@@ -8,8 +8,11 @@ public class Customer : MonoBehaviour
     public float driveSpeed;
     public AudioSource audioSource;
 
+    public bool unhappy = false;
+
     public AudioClip[] driveClips; // Assign 2 clips in the Inspector
     public AudioClip happySoundClip;
+    public AudioClip sadSoundClip;
 
     public CustomerStates state;
 
@@ -36,10 +39,9 @@ public class Customer : MonoBehaviour
 
                 StartCoroutine(ShowOrderWithDelay(0.5f));
                 state = CustomerStates.WaitingForOrder;
-
+                GameManager.Instance.StartTimer();
                 break;
             case CustomerStates.WaitingForOrder:
-
                 break;
             case CustomerStates.Goodbye:
                 transform.position += Vector3.forward * driveSpeed;
@@ -58,21 +60,21 @@ public class Customer : MonoBehaviour
 
                 GameObject orderObj = Instantiate(item.GetOrderItem());
 
-                if(randomCook < 0.33f)
+                if(randomCook == 0)
                 {
                     randomCook = 0f; // Raw
                 }
-                else if (randomCook < .66f)
+                else if (randomCook < .33f)
                 {
                     randomCook = 0.1f; // Rare
                 }
-                else if (randomCook < 0.75f)
+                else if (randomCook < 0.66f)
                 {
                     randomCook = 0.33f; // Medium
                 }
                 else
                 {
-                    randomCook = 0.75f; // Well Done
+                    randomCook = 0.66f; // Well Done
                 }
 
                 orderObj.GetComponent<OrderItem>().Initialize(randomCook, item.GetFoodType(), item.GetFoodSprite());
@@ -110,6 +112,16 @@ public class Customer : MonoBehaviour
         }
     }
 
+    public void PlaySadSound()
+    {
+        if (driveClips != null && driveClips.Length > 0 && audioSource != null)
+        {
+            int idx = Random.Range(0, driveClips.Length);
+            audioSource.clip = sadSoundClip;
+            audioSource.Play();
+        }
+    }
+
     internal void CompleteOrder(bool orderMatches)
     {
         if(state != CustomerStates.WaitingForOrder)
@@ -120,6 +132,7 @@ public class Customer : MonoBehaviour
 
         if (orderMatches)
         {
+            GameManager.Instance.TableTop.ClearBag();
             Debug.Log("Order Complete! Customer is happy!");
             GameManager.Instance.happyCustomers += 1;
             state = CustomerStates.Goodbye;
@@ -130,13 +143,46 @@ public class Customer : MonoBehaviour
             }
             // Drive away
             PlayHappySound();
+            GameManager.Instance.customerTimer.PauseTimer();
         }
         else
         {
+            // Didn't match order
+            GameManager.Instance.TableTop.ClearBag();
+            Debug.Log("Order Complete! But the Customer is unhappy!");
+            unhappy = true;
 
+            // Clear order sign
+            foreach (Transform child in GameManager.Instance.orderSignHolder.transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+
+            PlaySadSound();
+            GameManager.Instance.customerTimer.PauseTimer();
+            state = CustomerStates.Goodbye;
         }
     }
 
+    internal void OnTimeExpired()
+    {
+        if (state != CustomerStates.WaitingForOrder)
+        {
+            return;
+        }
+        Debug.Log("Customer time expired! They are leaving unhappy.");
+        
+        // Deal Damage(?)
+
+        GameManager.Instance.TableTop.ClearBag();
+        // Clear order sign
+        foreach (Transform child in GameManager.Instance.orderSignHolder.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        PlaySadSound();
+        state = CustomerStates.Goodbye;
+    }
 }
 
 public enum CustomerType

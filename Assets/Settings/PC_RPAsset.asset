@@ -19,6 +19,7 @@ MonoBehaviour:
   m_RendererDataList:
   - {fileID: 11400000, guid: f288ae1f4751b564a96ac7587541f7a2, type: 2}
   - {fileID: 11400000, guid: ef89aa105566e7a43a4a429a5b88bd2c, type: 2}
+  - {fileID: 11400000, guid: fb2a080fe6d4cd341b4f8f5576212cba, type: 2}
   m_DefaultRendererIndex: 0
   m_RequireDepthTexture: 1
   m_RequireOpaqueTexture: 1
@@ -35,9 +36,9 @@ MonoBehaviour:
   m_LODCrossFadeDitheringType: 1
   m_ShEvalMode: 0
   m_LightProbeSystem: 1
-  m_ProbeVolumeMemoryBudget: 1024
-  m_ProbeVolumeBlendingMemoryBudget: 128
-  m_SupportProbeVolumeGPUStreaming: 0
+  m_ProbeVolumeMemoryBudget: 2048
+  m_ProbeVolumeBlendingMemoryBudget: 512
+  m_SupportProbeVolumeGPUStreaming: 1
   m_SupportProbeVolumeDiskStreaming: 0
   m_SupportProbeVolumeScenarios: 1
   m_SupportProbeVolumeScenarioBlending: 1
@@ -48,7 +49,7 @@ MonoBehaviour:
   m_AdditionalLightsRenderingMode: 1
   m_AdditionalLightsPerObjectLimit: 4
   m_AdditionalLightShadowsSupported: 1
-  m_AdditionalLightsShadowmapResolution: 2048
+  m_AdditionalLightsShadowmapResolution: 4096
   m_AdditionalLightsShadowResolutionTierLow: 256
   m_AdditionalLightsShadowResolutionTierMedium: 512
   m_AdditionalLightsShadowResolutionTierHigh: 1024

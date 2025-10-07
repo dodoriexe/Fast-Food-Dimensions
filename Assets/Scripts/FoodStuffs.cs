@@ -27,9 +27,9 @@ public class FoodStuffs : Draggable
     // Update is called once per frame
     void Update()
     {
-        if(this.transform.localScale != new Vector3(0.4f,0.4f,0.4f))
+        if(this.transform.localScale != desiredScale)
         {
-            this.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+            this.transform.localScale = new Vector3(desiredScale.x, desiredScale.y, desiredScale.z);
         }
     }
 
@@ -44,6 +44,13 @@ public class FoodStuffs : Draggable
     {
         if (other.CompareTag("GrillTop"))
         {
+            AudioSource audioSource = other.GetComponent<AudioSource>();
+
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+            
             ShowCookImage();
 
             cookPercentage += Time.deltaTime * 1f;
@@ -126,11 +133,11 @@ public class FoodStuffs : Draggable
         {
             return CookLevel.Raw;
         }
-        if (cookPercent < .3f)
+        else if (cookPercent < .33f)
         {
             return CookLevel.Rare;
         }
-        else if (cookPercent < .66)
+        else if (cookPercent < .66f)
         {
             return CookLevel.Medium;
         }
@@ -148,19 +155,19 @@ public class FoodStuffs : Draggable
     {
         Color tempColor = new Color(0, 0, 0);
 
-        if (cookPercent < .33)
+        if (cookPercent < .33f)
         {
             tempColor = new Color(0.3254901960784314f, 1, 0);
         }
-        else if (cookPercent < .66)
+        else if (cookPercent < .66f)
         {
             tempColor = new Color(1,1,0);
         }
-        else if (cookPercent < 0.99)
+        else if (cookPercent < 1f)
         {
             tempColor = new Color(0.8666666666666667f, 0.12549019607843137f, 0.12549019607843137f);
         }
-        else if (cookPercent == 100f)
+        else if (cookPercent == 1f)
         {
             tempColor = Color.black;
         }
@@ -185,14 +192,16 @@ public enum FoodType
 {
     // Food
     Burger,
+    ChillGuyFloat,
 
     // Drinks
-    DrinkGreenPee,
-    DrinkSadDog,
-    DrinkClassico,
     DrinkGlorpola,
+    DrinkGreenPee,
+    DrinkClassico,
     DrinkInk,
-    DrinkMog,
+
     DrinkMisterFresh,
-    DrinkElfStrike
+    DrinkMog,
+    DrinkElfStrike,
+    DrinkSadDog
 }

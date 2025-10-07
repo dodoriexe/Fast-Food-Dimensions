@@ -1,12 +1,17 @@
 using System.Collections;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class PortalTeleporter : MonoBehaviour
 {
+    public string identifier;
     public Camera camera;
     public Transform player;
     public Transform receiver;
+    public Skybox thisSkybox;
+
+    public UniversalRendererData data;
 
     public float exitOffset;
 
@@ -46,7 +51,20 @@ public class PortalTeleporter : MonoBehaviour
 
                 Debug.Log("Teleported player through portal.");
 
-                playerIsOverlapping = false;
+                //GameManager.Instance.SwapSkybox(receiver.GetComponent<PortalTeleporter>().thisSkybox;
+                if(receiver.GetComponent<PortalTeleporter>().identifier == "Alien")
+                {
+                    data.rendererFeatures[2].SetActive(true);
+                    data.rendererFeatures[1].SetActive(true);
+                }
+                else
+                {
+                    data.rendererFeatures[2].SetActive(false);
+                    data.rendererFeatures[1].SetActive(false);
+                }
+
+
+                    playerIsOverlapping = false;
                 GameManager.Instance.lastTeleportTime = Time.time;
             }
         }

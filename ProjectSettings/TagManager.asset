@@ -14,7 +14,7 @@ TagManager:
   - Red Bug
   - Brown Bug
   - Green Bug
-  - Pickaxe
+  - Cup
   layers:
   - Default
   - TransparentFX
@@ -29,7 +29,7 @@ TagManager:
   - Floor
   - Portal
   - Portal Invisible
-  - 
+  - CamerasPostProcess
   - 
   - 
   - 

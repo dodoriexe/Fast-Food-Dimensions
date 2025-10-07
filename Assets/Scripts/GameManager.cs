@@ -11,6 +11,13 @@ public class GameManager : MonoBehaviour
     public List<GameObject> customerPrefabs;
     public Transform customerSpawnPoint;
 
+    public EndGameWaiter endGameWaiter;
+
+    public WindowTop TableTop;
+    public SodaTop SodaTop;
+
+    public CustomerTimer customerTimer;
+
     public List<Dimension> dimensions;
     public List<Portal> dimensionPortals;
     public int currentDimensionIndex;
@@ -33,7 +40,7 @@ public class GameManager : MonoBehaviour
     public int drinkGenerateAmount;
 
     public int happyCustomers; // High Score
-
+    public GameObject orderItem;
 
     private void Awake()
     {
@@ -53,6 +60,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        endGameWaiter = FindObjectOfType<EndGameWaiter>();
         SpawnCustomer();
     }
 
@@ -86,6 +94,59 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public static (int foods, int drinks, int items) GetOrderCounts(int score)
+    {
+        int drinks = 0;
+        int items = 1;
+
+        if (score >= 3) { drinks = 1; items = 2; }
+        if (score >= 6) { drinks = 1; items = 3; }
+        if (score >= 10) { drinks = 1; items = 4; }
+        if (score >= 15) { drinks = 2; items = 5; }
+        if (score >= 20) { drinks = 2; items = 6; }
+        if (score >= 25) { drinks = 3; items = 7; }
+        if (score >= 30) { drinks = 4; items = 8; }
+
+        int foods = items - drinks;
+        return (foods, drinks, items);
+    }
+
+    public static float GetCustomerTime(int score)
+    {
+        // starting and ending times in seconds
+        const float startTime = 10f * 60f; // 10 minutes
+        const float minTime = 2.5f * 60f;  // 2 minutes 30 seconds
+        const float secondsStep = 30f;     // how much time to remove every X customers
+        const int customersPerStep = 2;    // after how many customers we shorten
+
+        // compute how many steps we've passed
+        int steps = score / customersPerStep;
+        float time = startTime - steps * secondsStep;
+
+        // clamp to min time
+        if (time < minTime)
+            time = minTime;
+
+        return time; // in seconds
+    }
+
+    public void StartTimer()
+    {
+        customerTimer.totalTimeSeconds = GetCustomerTime(happyCustomers);
+        customerTimer.ResetTimer();
+        customerTimer.StartTimer();
+    }
+
+    public void SwapSkybox(Skybox skybox)
+    {
+        playerCamera.GetComponent<Skybox>().material = skybox.material;
+    }
+
+    public void GameOver()
+    {
+        endGameWaiter.GameOver(happyCustomers);
+    }
+
     public void QuitGame()
     {
         Application.Quit();
@@ -95,6 +156,8 @@ public class GameManager : MonoBehaviour
     {
         List<OrderItemHolder> tempOrder = new List<OrderItemHolder>();
         // Generate Item Displays
+        foodGenerateAmount = GetOrderCounts(happyCustomers).foods;
+        drinkGenerateAmount = GetOrderCounts(happyCustomers).drinks;
 
         // Food
         for (int i = 0; i < foodGenerateAmount; i++)
@@ -120,9 +183,9 @@ public class GameManager : MonoBehaviour
     {
         if (foodOrderItems == null || foodOrderItems.Count == 0)
             return null;
-        float step = 0.01f;
+        //float step = 0.01f;
         OrderItemHolder tempItem = foodOrderItems[Random.Range(0, foodOrderItems.Count)].toOrderItemHolder();
-        tempItem.SetCookPercentage(Mathf.Round(Random.Range(0, 1f) / step) * step);
+        tempItem.SetCookPercentage(Random.Range(0f, 1f));
         return tempItem;
     }
 
@@ -130,9 +193,9 @@ public class GameManager : MonoBehaviour
     {
         if (drinkOrderItems == null || drinkOrderItems.Count == 0)
             return null;
-        float step = 0.01f;
-        OrderItemHolder tempItem = foodOrderItems[Random.Range(0, foodOrderItems.Count)].toOrderItemHolder();
-        tempItem.SetCookPercentage(Mathf.Round(Random.Range(0, 1f) / step) * step);
-        return drinkOrderItems[Random.Range(0, drinkOrderItems.Count)].toOrderItemHolder();
+        //float step = 0.01f;
+        OrderItemHolder tempItem = drinkOrderItems[Random.Range(0, drinkOrderItems.Count)].toOrderItemHolder();
+        tempItem.SetCookPercentage(Random.Range(0f, 1f));
+        return tempItem;
     }
 }
