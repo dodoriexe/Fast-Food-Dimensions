@@ -68,7 +68,7 @@ public class PortalTeleporter : MonoBehaviour
                 {
                     data.rendererFeatures[2].SetActive(false);
                     data.rendererFeatures[1].SetActive(false);
-                    data.rendererFeatures[3.SetActive(false);
+                    data.rendererFeatures[3].SetActive(false);
                 }
 
                 if(receiver.GetComponent<PortalTeleporter>().identifier == "KIN")
