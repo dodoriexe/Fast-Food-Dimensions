@@ -71,6 +71,8 @@ public class PortalTeleporter : MonoBehaviour
                 if(receiver.GetComponent<PortalTeleporter>().identifier == "KIN")
                 {
                     GameManager.Instance.player.GetComponent<Rigidbody>().mass = 0.5f;
+                    data.rendererFeatures[1].SetActive(true);
+                    data.rendererFeatures[3].SetActive(true);
                 }
                 else
                 {
