@@ -56,22 +56,26 @@ public class PortalTeleporter : MonoBehaviour
                 {
                     data.rendererFeatures[2].SetActive(true);
                     data.rendererFeatures[1].SetActive(true);
+                    data.rendererFeatures[3].SetActive(false);
                 }
                 else if(receiver.GetComponent<PortalTeleporter>().identifier == "Garden")
                 {
                     data.rendererFeatures[2].SetActive(false);
                     data.rendererFeatures[1].SetActive(false);
+                    data.rendererFeatures[3].SetActive(false);
                 }
                 else
                 {
                     data.rendererFeatures[2].SetActive(false);
                     data.rendererFeatures[1].SetActive(false);
+                    data.rendererFeatures[3.SetActive(false);
                 }
 
                 if(receiver.GetComponent<PortalTeleporter>().identifier == "KIN")
                 {
                     GameManager.Instance.player.GetComponent<Rigidbody>().mass = 0.5f;
                     data.rendererFeatures[1].SetActive(true);
+                    data.rendererFeatures[2].SetActive(false);
                     data.rendererFeatures[3].SetActive(true);
                 }
                 else
