@@ -305,7 +305,7 @@ MonoBehaviour:
   interactionPrompt: 
   desiredScale: {x: 0.3, y: 0.3, z: 0.3}
   beingHeld: 0
-  foodType: 2
+  foodType: 4
   cookPercentage: 0
   orderItem: {fileID: 8775988750114913458, guid: ab6d56d61b03bf249be6709a90f65745, type: 3}
   foodSprite: {fileID: 21300000, guid: bb12b6e720823e04e9a5ac1e2d8b6405, type: 3}

@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPoints: 3
-  dropPrefab: {fileID: 541981491121635675, guid: 2ce718440f1b8774299d27d42935c94b, type: 3}
+  dropPrefab: {fileID: 637635113446587978, guid: c02a9e1302a3a6946bacb9f8667295af, type: 3}
 --- !u!64 &8635247810143704701
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -108,8 +108,8 @@ MonoBehaviour:
   beingHeld: 0
   foodType: 0
   cookPercentage: 0
-  orderItem: {fileID: 0}
-  foodSprite: {fileID: 0}
+  orderItem: {fileID: 8775988750114913458, guid: ab6d56d61b03bf249be6709a90f65745, type: 3}
+  foodSprite: {fileID: 21300000, guid: 7cc274d09fee0334a828aca361a43c72, type: 3}
   canvasObject: {fileID: 0}
   cookImage: {fileID: 0}
   rawText: {fileID: 0}
