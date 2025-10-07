@@ -22,6 +22,7 @@ public class EndGameWaiter : MonoBehaviour
         highscore = score;
         reason = reason;
         UnityEngine.SceneManagement.SceneManager.LoadScene("Game Over");
+        Destroy(GameManager.Instance.gameObject);
     }
 
 
