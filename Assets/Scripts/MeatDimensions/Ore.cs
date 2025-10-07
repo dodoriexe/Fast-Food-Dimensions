@@ -4,6 +4,7 @@ public class Ore : MonoBehaviour
 {
     [Header("Ore Settings")]
     public int hitPoints = 3;
+    public float dropHeightOffset = 1.5f;
     public GameObject dropPrefab;
 
     private bool isBreaking = false;
@@ -42,7 +43,7 @@ public class Ore : MonoBehaviour
     {
         if (dropPrefab != null)
         {
-            Instantiate(dropPrefab, transform.position, Quaternion.identity);
+            Instantiate(dropPrefab, transform.position + (Vector3.up * dropHeightOffset), Quaternion.identity);
         }
 
         Destroy(gameObject);

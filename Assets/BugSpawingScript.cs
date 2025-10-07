@@ -24,7 +24,7 @@ public class BugSpawingScript : MonoBehaviour
 
     public void spawnBug(GameObject bugtype)
     {
-        Vector3 randomPosition = new Vector3(Random.Range(minRandSpawn.position.x, maxRandSpawn.position.x), 1015, Random.Range(minRandSpawn.position.z, maxRandSpawn.position.z));
+        Vector3 randomPosition = new Vector3(Random.Range(minRandSpawn.position.x, maxRandSpawn.position.x), maxRandSpawn.position.y, Random.Range(minRandSpawn.position.z, maxRandSpawn.position.z));
         GameObject bug = Instantiate(bugtype, randomPosition, Quaternion.identity);
 
         if (bugtype == brownBugPrefab)

@@ -52,15 +52,29 @@ public class PortalTeleporter : MonoBehaviour
                 Debug.Log("Teleported player through portal.");
 
                 //GameManager.Instance.SwapSkybox(receiver.GetComponent<PortalTeleporter>().thisSkybox;
-                if(receiver.GetComponent<PortalTeleporter>().identifier == "Alien")
+                if (receiver.GetComponent<PortalTeleporter>().identifier == "Alien")
                 {
                     data.rendererFeatures[2].SetActive(true);
                     data.rendererFeatures[1].SetActive(true);
+                }
+                else if(receiver.GetComponent<PortalTeleporter>().identifier == "Garden")
+                {
+                    data.rendererFeatures[2].SetActive(false);
+                    data.rendererFeatures[1].SetActive(false);
                 }
                 else
                 {
                     data.rendererFeatures[2].SetActive(false);
                     data.rendererFeatures[1].SetActive(false);
+                }
+
+                if(receiver.GetComponent<PortalTeleporter>().identifier == "KIN")
+                {
+                    GameManager.Instance.player.GetComponent<Rigidbody>().mass = 0.5f;
+                }
+                else
+                {
+                    GameManager.Instance.player.GetComponent<Rigidbody>().mass = 1f;
                 }
 
 

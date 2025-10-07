@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Materials/Shader Materials.meta
+guid: f03272ebe0fdd354d82a3036df6eae4a
+========
 guid: 4d7dd16d16d854548ad5c8c32178068d
+>>>>>>>> 72330ec (created met dimensions and added burger ores!!):Assets/Scripts/MeatDimensions.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

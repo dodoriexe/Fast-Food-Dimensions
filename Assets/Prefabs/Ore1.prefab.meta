@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/Ore1.prefab.meta
 guid: 9b156a6dc718d314f920a60367ef1591
+========
+guid: 987df15f38f29af418de990ce1281ef3
+>>>>>>>> fixed-base:Assets/Prefabs/Ore3.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

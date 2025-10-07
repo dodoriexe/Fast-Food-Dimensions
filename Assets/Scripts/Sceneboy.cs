@@ -16,6 +16,7 @@ public class Sceneboy : MonoBehaviour
         */
 
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // Update is called once per frame
@@ -39,7 +40,7 @@ public class Sceneboy : MonoBehaviour
     public void ToGameScreen()
     {
         Debug.Log("To Game Screen");
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Dodo");
     }
 
     public void ToMenu()

@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
         else
             rb.linearDamping = 0;
 
-        HandleVariableJump();
+        //HandleVariableJump();
     }
 
     private void FixedUpdate()

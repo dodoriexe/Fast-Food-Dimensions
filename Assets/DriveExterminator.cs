@@ -20,7 +20,7 @@ public class DriveExterminator : MonoBehaviour
         {
             if (other.GetComponentInParent<Customer>().unhappy)
             {
-                GameManager.Instance.GameOver();
+                GameManager.Instance.GameOver("Something on this one's order wasn't right though!");
                 return;
             }
             else

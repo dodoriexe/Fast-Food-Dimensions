@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18d6b633d64d80f4684acb2b20d49738, type: 3}
-  m_Name: Meat Dimension
+  m_Name: Vegtopia
   m_EditorClassIdentifier: 
-  dimensionName: Burglands
-  dimensionColor: {r: 0.8867924, g: 0.6722297, b: 0.50614095, a: 1}
+  dimensionName: Vegtopia
+  dimensionColor: {r: 0, g: 0.5, b: 0.085170865, a: 1}

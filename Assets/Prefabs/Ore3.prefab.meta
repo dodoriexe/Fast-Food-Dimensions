@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/Ore3.prefab.meta
 guid: 987df15f38f29af418de990ce1281ef3
+========
+guid: 45ab08f567f288546bde69d6f61ebba7
+>>>>>>>> fixed-base:Assets/Prefabs/Tree 5.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

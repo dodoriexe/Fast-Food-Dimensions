@@ -193,6 +193,9 @@ public enum FoodType
     // Food
     Burger,
     ChillGuyFloat,
+    Tomato,
+    Pickle,
+    Lettuce,
 
     // Drinks
     DrinkGlorpola,

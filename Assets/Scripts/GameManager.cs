@@ -142,9 +142,9 @@ public class GameManager : MonoBehaviour
         playerCamera.GetComponent<Skybox>().material = skybox.material;
     }
 
-    public void GameOver()
+    public void GameOver(string reason)
     {
-        endGameWaiter.GameOver(happyCustomers);
+        endGameWaiter.GameOver(happyCustomers, reason);
     }
 
     public void QuitGame()
